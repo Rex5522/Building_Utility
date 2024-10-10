@@ -1,0 +1,33 @@
+{
+    "build paths": {
+        "path 1": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\global_vars.lua",
+
+        "path 2": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\ontick\\order\\1.lua",
+        "path 3": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\ontick\\functions",
+        "path 4": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\ontick\\testing",
+        "path 5": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\ontick\\order\\2.lua",
+        "path 6": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\ontick\\functions\\every5ticks",
+        "path 7": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\ontick\\order\\3.lua",
+        "path 8": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\ontick\\functions\\every60ticks",
+        "path 9": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\ontick\\order\\4.lua",
+
+        "path 10": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\oncommand\\order\\1.lua",
+        "path 11": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\oncommand\\reset.lua",
+        "path 12": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\oncommand\\order\\2.lua",
+        "path 13": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\oncommand\\test commands",
+        "path 14": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\oncommand\\admin commands",
+        "path 15": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\oncommand\\order\\3.lua",
+        "path 16": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\oncommand\\auth commands",
+        "path 17": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\oncommand\\order\\4.lua",
+        "path 18": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\oncommand\\all commands",
+        "path 19": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in\\oncommand\\order\\5.lua",
+
+        "path 20": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions\\built in",
+        "path 21": "C:\\Users\\freit\\stuff\\coding\\java\\file_devider\\app\\projects\\uilding_utility_v1\\functions"
+
+    },
+    "output path": {
+        "output1": "C:\\Users\\freit\\AppData\\Roaming\\Stormworks\\data\\missions\\BuildingUtility_DevTest\\script.lua",
+        "output99999": "D:\\SteamLibrary\\steamapps\\common\\Stormworks\\rom\\data\\missions\\BuildingUtility_DevTest\\script.lua"
+    }
+}

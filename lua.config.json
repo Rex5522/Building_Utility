@@ -1,0 +1,12 @@
+{
+    "Lua.workspace.library": [
+        "C:/Users/freit/stuff/coding/github/building_utility/src/main/lua/Building_Utility_code"
+    ],
+    "Lua.diagnostics.ignore": ["lowercase-global-functions"],
+    "Lua.diagnostics.globals": ["server", "g_savedata"],
+    "Lua.workspace.checkThirdParty": false,
+    "Lua.workspace.ignoreDir": [
+        ["C:\\Users\\freit\\stuff\\coding\\github\\building_utility\\src\\main\\lua\\obsolete"]
+    ],
+    "Lua.typeCheck.mode": "typed"
+}

@@ -1,0 +1,1 @@
+function onCustomCommand(full, user_id, admin, auth, command, one, two, three, four, five)

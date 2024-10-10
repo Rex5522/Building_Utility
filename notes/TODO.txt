@@ -1,0 +1,20 @@
+high priority:
+
+mid priority:
+    make vehicles align to user when teleporting
+    remove user:arghelp and replace it with a better func
+    further test the tp command
+
+low priority:
+    ADD A TABLE command
+    add a spawn object command
+    add a disable for every command
+    make the remove command into a function to remove code dupe
+    add a reset function to reset the script if it dies
+
+
+done:
+    make vehicles spawn at a safe location -- just gunna asume people know what there doing
+    get spawn tile and set it as home location
+    make players that are in a vehicles seat stay in a vehicles seat when teleported
+    finish set command for saving seats, locations and inventorys

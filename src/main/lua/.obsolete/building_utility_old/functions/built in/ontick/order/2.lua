@@ -1,0 +1,1 @@
+if tick % 5 == 0 then

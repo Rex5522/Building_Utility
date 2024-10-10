@@ -1,0 +1,14 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "Lua.diagnostics.globals": [
+        "server",
+        "property",
+        "matrix",
+        "g_savedata"
+    ],
+    "Lua.diagnostics.disable": [
+        "need-check-nil",
+        "lowercase-global"
+    ],
+    "gitlens.currentLine.enabled": false
+}

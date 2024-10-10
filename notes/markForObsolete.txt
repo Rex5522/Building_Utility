@@ -1,0 +1,6 @@
+list file paths for functions that should not be used
+
+example:
+src\main\lua\markForObsolete.txt
+
+files:
