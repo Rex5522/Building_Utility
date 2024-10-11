@@ -63,7 +63,11 @@ function tp(data)
         vehicleExist,
         nil,
         function(arg)
-            return user.savedLocations.locations[arg].matrix
+            if user.savedLocations.locations[arg] then
+                return user.savedLocations.locations[arg].matrix
+            else
+                return nil
+            end
         end
     }
 
