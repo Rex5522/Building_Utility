@@ -63,7 +63,7 @@ function tp_getLocation(user, admin, arg1Data, arg2Data)
         end
 
         -- if player then attempt to get seat
-        if arg1Data[2] == "u" or arg1Data[2] == "p" then
+        if arg1Data[2] == "u" or arg1Data[2] == "p" or not arg2Data then
             vehicleSeats = getVehicleSeatedCreatures(locationArg[4])
             if vehicleSeats.notSeated[1] then
                 targetLocation = vehicleSeats.notSeated[1]

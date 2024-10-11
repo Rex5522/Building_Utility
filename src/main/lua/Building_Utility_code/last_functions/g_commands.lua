@@ -7,7 +7,9 @@ G_Commands = { -- i shouldnt need to explain this. just dont forget the comma(s)
         ["?distexplo"] = distexplo,
         ["?autoauth"] = autoAuth,
         ["?clearobjects"] = clearObjects,
-        ["?clearobj"] = clearObjects
+        ["?clearobj"] = clearObjects,
+        ["?god"] = godMode,
+        ["?godmdoe"] = godMode
     },
 
     auth = {

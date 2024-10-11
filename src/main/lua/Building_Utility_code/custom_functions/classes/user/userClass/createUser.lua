@@ -34,6 +34,7 @@ function userClass:createUser(steamID, name, userID, fake)
         debug = false,
         antiSteal = true,
         hud = true,
+        godMode = false,
         autoVehicleLocationSpawn = false,
         autoSeat = true,
         banned = false,

@@ -3,6 +3,6 @@
 -- @return nil
 function autoSeat(data)
     local user = data.user
-    user:modify("autoSeat", "!NOT!")
+    user.autoSeat = not user.autoSeat
     user:display("AutoSeat "..booleanTranslator(user.autoSeat, 1), true)
 end
