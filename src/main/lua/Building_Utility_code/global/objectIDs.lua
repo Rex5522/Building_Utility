@@ -1,4 +1,4 @@
-G_ObjectIDs = { -- i aint doing all this #chatGPT time
+G_ObjectIDs = { -- i aint doing all this #chatGPT time   |   lol - chickenfinger
     [0] = { name = "none", canBeSpawned = true },
     [1] = { name = "character", canBeSpawned = true },
     [2] = { name = "crate_small", canBeSpawned = true },
