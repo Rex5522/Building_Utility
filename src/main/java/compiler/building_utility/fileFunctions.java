@@ -67,7 +67,7 @@ public class fileFunctions {
                                 "path 2": "0",\r
                                 "path 3": "0"\r
                             },\r
-                            "output path": {"output": "0"}\r
+                            "output paths": {"output 1": "0"}\r
                         }"""
             );
         } catch (Exception e) {
