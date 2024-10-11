@@ -22,7 +22,7 @@ public class Main {
         if(!dvdata.exists()) {
             fileFunctions.createDefaultJson(dvdata);
             log("no dvdata found. creating default");
-            System.exit(0);
+            exit();
         } 
 
         // extract and configer json data
