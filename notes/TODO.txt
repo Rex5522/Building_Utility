@@ -4,6 +4,8 @@ mid priority:
     make vehicles align to user when teleporting
     remove user:arghelp and replace it with a better func
     further test the tp command
+    add a help message when someone spawns displaying a help message
+    make a help command
 
 low priority:
     ADD A TABLE command

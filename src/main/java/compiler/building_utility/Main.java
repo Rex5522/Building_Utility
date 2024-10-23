@@ -25,9 +25,6 @@ public class Main {
             exit();
         }
 
-        log(System.getenv("WORKSPACE_DIR"));
-        exit();
-
         // extract and configer json data
         String jsonContent;
         try {

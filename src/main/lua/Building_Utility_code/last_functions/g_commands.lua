@@ -9,7 +9,11 @@ G_Commands = { -- i shouldnt need to explain this. just dont forget the comma(s)
         ["?clearobjects"] = clearObjects,
         ["?clearobj"] = clearObjects,
         ["?god"] = godMode,
-        ["?godmdoe"] = godMode
+        ["?godmdoe"] = godMode,
+        ["?spawnobject"] = spawnObject,
+        ["?spawnanimal"] = spawnAnimal,
+        ["?spawncharacter"] = spawnCharacter,
+        ["?spawncreature"] = spawnCreature
     },
 
     auth = {
