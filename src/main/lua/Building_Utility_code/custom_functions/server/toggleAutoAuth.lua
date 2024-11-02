@@ -8,9 +8,11 @@ function toggleAutoAuth()
 
     for index, userData in pairs(server.getPlayers()) do
         local user = getUserFromUserID(userData.id)
-        local canBeAutoAuthed = (user.bans == 0 and not userData.auth)
-        if canBeAutoAuthed then
-            server.addAuth(user.ID)
+        if user then
+            local canBeAutoAuthed = (user.bans == 0 and not userData.auth)
+            if canBeAutoAuthed then
+                server.addAuth(user.ID)
+            end
         end
     end
 end
