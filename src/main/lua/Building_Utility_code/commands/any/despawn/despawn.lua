@@ -1,7 +1,7 @@
 --- despawns vehicles
 -- @param data
 -- @return nil
-function despawn(data)
+function CMDdespawn(data)
     local user = data.user
     local vehicleOrGroupToDespawn = data.arg1
     local success

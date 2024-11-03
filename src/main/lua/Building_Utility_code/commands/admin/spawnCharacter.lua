@@ -1,4 +1,4 @@
-function spawnCharacter(data)
+function CMDspawnCharacter(data)
     local formatCommandData = {
         command = "?spawncharacter",
         argData = {

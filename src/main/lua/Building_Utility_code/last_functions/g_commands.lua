@@ -1,36 +1,36 @@
 G_Commands = { -- i shouldnt need to explain this. just dont forget the comma(s)
     admin = {
-        --["?yourCommand"] = yourCommandNameFunctionName,
-        ["?reload"] = reload,
-        ["?debug"] = enableDebug,
-        ["?clearuservehicles"] = clearUserVehicles,
-        ["?distexplo"] = distexplo,
-        ["?autoauth"] = autoAuth,
-        ["?clearobjects"] = clearObjects,
-        ["?clearobj"] = clearObjects,
-        ["?god"] = godMode,
-        ["?godmdoe"] = godMode,
-        ["?spawnobject"] = spawnObject,
-        ["?spawnanimal"] = spawnAnimal,
-        ["?spawncharacter"] = spawnCharacter,
-        ["?spawncreature"] = spawnCreature
+        --["?yourCommand"] = CMDyourCommandNameFunctionName,
+        ["?reload"] = CMDreload,
+        ["?debug"] = CMDenableDebug,
+        ["?clearuservehicles"] = CMDclearUserVehicles,
+        ["?distexplo"] = CMDdistexplo,
+        ["?autoauth"] = CMDautoAuth,
+        ["?clearobjects"] = CMDclearObjects,
+        ["?clearobj"] = CMDclearObjects,
+        ["?god"] = CMDgodMode,
+        ["?godmdoe"] = CMDgodMode,
+        ["?spawnobject"] = CMDspawnObject,
+        ["?spawnanimal"] = CMDspawnAnimal,
+        ["?spawncharacter"] = CMDspawnCharacter,
+        ["?spawncreature"] = CMDspawnCreature
     },
 
     auth = {
-        ["?tp"] = tp,
-        ["?tpp"] = tp
+        ["?tp"] = CMDtp,
+        ["?tpp"] = CMDtp
     },
 
     any = {
-        ["?remove"] = remove,
-        ["?spawnlc"] = spawnlc,
-        ["?tpblock"] = TPBlock,
-        ["?set"] = set,
-        ["?d"] = despawn,
-        ["?despawn"] = despawn,
-        ["?hud"] = hud,
-        ["?antisteal"] = antiSteal,
-        ["??"] = qmqm,
-        ["?autoseat"] = autoSeat
+        ["?remove"] = CMDremove,
+        ["?spawnlc"] = CMDspawnlc,
+        ["?tpblock"] = CMDTPBlock,
+        ["?set"] = CMDset,
+        ["?d"] = CMDdespawn,
+        ["?despawn"] = CMDdespawn,
+        ["?hud"] = CMDhud,
+        ["?antisteal"] = CMDantiSteal,
+        ["??"] = CMDqmqm,
+        ["?autoseat"] = CMDautoSeat
     }
 }

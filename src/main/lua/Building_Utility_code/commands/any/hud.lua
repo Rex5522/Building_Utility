@@ -1,7 +1,7 @@
 --- manages basic hud functions
 -- @param data
 -- @return nil
-function hud(data)
+function CMDhud(data)
     local formatCommandData = {
         command = "?hud",
         argData = {

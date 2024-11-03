@@ -1,4 +1,4 @@
-function remove(data)
+function CMDremove(data)
     local formatCommandData = {
         command = "?remove",
         argData = {

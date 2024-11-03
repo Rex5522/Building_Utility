@@ -1,4 +1,4 @@
-function spawnAnimal(data)
+function CMDspawnAnimal(data)
     local formatCommandData = {
         command = "?spawnanimalt",
         argData = {

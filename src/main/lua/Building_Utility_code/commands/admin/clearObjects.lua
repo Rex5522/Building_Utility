@@ -1,7 +1,7 @@
 --- clears objects
 -- @param data
 -- @return nil
-function clearObjects(data)
+function CMDclearObjects(data)
     local despawned = 0
 
     for i = 1, 100000 do

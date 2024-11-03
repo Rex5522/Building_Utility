@@ -1,4 +1,4 @@
-function spawnObject(data)
+function CMDspawnObject(data)
     local formatCommandData = {
         command = "?spawnobject",
         argData = {

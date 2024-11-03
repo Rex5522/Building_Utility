@@ -1,4 +1,4 @@
-function set(data)
+function CMDset(data)
     local formatCommandData = {
         command = "?set",
         argData = {

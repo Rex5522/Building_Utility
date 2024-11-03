@@ -1,7 +1,7 @@
 --- toggle autoauth for the server
 -- @param data
 -- @return nil
-function autoAuth(data)
+function CMDautoAuth(data)
     toggleAutoAuth()
     local autoauth = G_ServerSettings.autoAuth
     data.user:display("autoAuth "..booleanTranslator(autoauth), autoauth)
