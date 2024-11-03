@@ -4,18 +4,21 @@ function onPlayerJoin(steamID, name, userID, admin, auth)
     
     if userID == -1 then
         G_ServerSettings.dedicatedServer = true
-        BU_Debug("onplayerjoin returned")
+        BU_Debug("dedicated server default user joined")
         return
     end
 
 
     local user = getUserFromSteamID(steamID)
     if not user then
+        BU_Debug("user not found. creating user")
         user = userClass:createUser(steamID, name, userID)
+    else
+        BU_Debug("user found")
     end
     
     if not user then
-        BU_Debug("onplayerjoin returned2")
+        BU_Debug("unable to create user")
         return
     end
     

@@ -4,10 +4,5 @@
 function userCommands:getObjectID(self)
     objectID, success = server.getPlayerCharacterID(self.ID)
 
-    if not success then
-        BU_Debug("unable to get objectID of user "..self.steamID.."with the id of: "..tostring(self.ID))
-        return nil
-    end
-
-    return objectID, success
+    return objectID or nil, success
 end

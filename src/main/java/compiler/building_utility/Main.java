@@ -11,6 +11,7 @@ public class Main {
     public static String logdata = "";
     public static String combindedData = "";
 
+    @SuppressWarnings("CallToPrintStackTrace")
     public static void main(String[] args) {
 
         // get building utilitys

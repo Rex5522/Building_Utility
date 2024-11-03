@@ -12,9 +12,11 @@ def accept_terminal_input():
     global logs
     while True:
         user_input = input()
+        print('=' * 200)
+        print("command: " + user_input)
+        print('=' * 200)
         
         if user_input == "":
-            os.system('cls')
             print(logs)
             logs = ""
             

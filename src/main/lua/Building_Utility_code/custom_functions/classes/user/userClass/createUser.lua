@@ -11,14 +11,15 @@ function userClass:createUser(steamID, name, userID, fake)
     end
     steamID = tostring(steamID)
 
-    BU_Debug("creating user",steamID,name,userID,fake)
+    BU_Debug("attempting to create user",steamID,name,userID,fake)
     
     if g_savedata.users[steamID] then
         if not g_savedata.steamIDs[userID] then
             BU_Debug("ERROR: a users data exists but not in g_SteamIDs? tf,", g_savedata.steamIDs )
             g_savedata.steamIDs[userID] = steamID
+        else
+            BU_Debug("user already exists")
         end
-        BU_Debug("user already exists")
         return g_savedata.users[steamID]
     end
 
