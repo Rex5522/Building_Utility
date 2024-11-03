@@ -10,6 +10,7 @@ function userClass:createUser(steamID, name, userID, fake)
         return nil
     end
     steamID = tostring(steamID)
+    userID = tonumber(userID)
 
     BU_Debug("attempting to create user",steamID,name,userID,fake)
     
@@ -31,7 +32,7 @@ function userClass:createUser(steamID, name, userID, fake)
         preferedSpeedunit = "m/s",
         steamID = steamID, -- always string
         name = name,
-        ID = tonumber(userID), -- always an int
+        ID = userID, -- always an int
         debug = false,
         antiSteal = true,
         hud = true,

@@ -12,3 +12,10 @@ low priority:
     add a disable for every command
     make the remove command into a function to remove code dupe
     add a reset function to reset the script if it dies
+
+change log:
+
+
+version 1.02
+fixed a bug that causes an error while toggling autoAuth
+fixed an issue where the player wouldnt be propperly considered a player on rejoin
