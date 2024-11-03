@@ -8,7 +8,7 @@ function BU_UpdateFiles()
 
      for index, userData in pairs(playerList) do
         local user = getUserFromUserID(userData.id)
-        if not user then
+        if not user and tostring(userData.steam_id) ~= "0" then
             BU_Debug("a player was nil", userData)
             BU_Debug(G_Users)
             user = userClass:createUser(tostring(userData.steam_id), userData.name, userData.id, false)

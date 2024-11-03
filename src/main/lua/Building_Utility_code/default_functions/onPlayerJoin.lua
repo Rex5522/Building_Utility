@@ -2,7 +2,7 @@ function onPlayerJoin(steamID, name, userID, admin, auth)
     BU_Debug("start of onplayerjoin", steamID, name, userID, admin, auth)
     steamID = tostring(steamID)
     
-    if userID == -1 then
+    if steamID == "0" then
         G_ServerSettings.dedicatedServer = true
         BU_Debug("dedicated server default user joined")
         return
