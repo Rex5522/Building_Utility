@@ -13,12 +13,14 @@ G_Commands = { -- i shouldnt need to explain this. just dont forget the comma(s)
         ["?spawnobject"] = CMDspawnObject,
         ["?spawnanimal"] = CMDspawnAnimal,
         ["?spawncharacter"] = CMDspawnCharacter,
-        ["?spawncreature"] = CMDspawnCreature
+        ["?spawncreature"] = CMDspawnCreature,
+        ["?kill"] = CMDkill
     },
 
     auth = {
         ["?tp"] = CMDtp,
-        ["?tpp"] = CMDtp
+        ["?tpp"] = CMDtp,
+        ["?die"] = CMDdie
     },
 
     any = {
