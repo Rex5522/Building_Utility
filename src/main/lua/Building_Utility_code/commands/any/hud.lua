@@ -15,7 +15,7 @@ function CMDhud(data)
     }
 
     local user = data.user
-    local hudMode = data.hudMode
+    local hudMode = data.arg1
 
     if hudMode == "help" then
         createCommandFormat(formatCommandData, user)
