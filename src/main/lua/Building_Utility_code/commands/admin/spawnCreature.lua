@@ -27,5 +27,10 @@ function CMDspawnCreature(data)
         return
     end
 
+    if not server.dlcArid() then
+        user:display("you need the Industrial Frontier DLC")
+        return
+    end
+
     spawnCommandFunc(user, size, targetObjectID, G_CreatureIDs, "creature")
 end
