@@ -24,6 +24,8 @@ function onPlayerJoin(steamID, name, userID, admin, auth)
     
     delayCommand(function() userCommands:fixName(user) end, 500)
     user.ID = userID
+    g_savedata.steamIDs[userID] = steamID
+
 
     if (user.bans == 0 and not auth and G_ServerSettings.autoAuth) then
         BU_Debug("attempting to auth userID: "..tostring(userID))
