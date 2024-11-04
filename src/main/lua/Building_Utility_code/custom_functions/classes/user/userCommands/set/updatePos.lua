@@ -2,12 +2,13 @@
 -- @param self
 -- @return true or nil
 function userCommands:updatePos(self)
-    local x, y, z = matrix.position(self:getLocation())
-    if not x or not y or not z then
-        BU_Debug("xyz was nil")
+    local playerLocation = self:getLocation()
+    if not playerLocation then
+        BU_Debug("unable to get player location")
         return nil
     end
 
+    local x, y, z = matrix.position(playerLocation)
     local deltaX = x - self.pos.lastX
     local deltaY = y - self.pos.lastY
     local deltaZ = z - self.pos.lastZ
