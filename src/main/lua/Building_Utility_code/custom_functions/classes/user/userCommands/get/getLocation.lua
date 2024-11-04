@@ -19,7 +19,7 @@ function userCommands:getLocation(self, forwardOffset, verticalOffset)
 	local lookX, lookY, lookZ, success = server.getPlayerLookDirection(self.ID)
 	if not success then
 		BU_Debug("failed to get player look direction")
-		return
+		return nil
 	end
 
 	local playerPosX, playerPosY, playerPosZ = matrix.position(playerPos)
