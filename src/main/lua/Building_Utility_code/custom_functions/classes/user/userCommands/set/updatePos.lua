@@ -4,7 +4,6 @@
 function userCommands:updatePos(self)
     local playerLocation = self:getLocation()
     if not playerLocation then
-        BU_Debug("unable to get player location")
         return nil
     end
 
