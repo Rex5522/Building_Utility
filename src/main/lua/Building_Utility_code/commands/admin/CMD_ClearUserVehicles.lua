@@ -1,7 +1,7 @@
 --- clears all a users vehicles
 -- @param data
 -- @return nil
-function CMDclearUserVehicles(data)
+function CMD_ClearUserVehicles(data)
     local formatCommandData = {
         command = "?clearUserVehicles",
         argData = {

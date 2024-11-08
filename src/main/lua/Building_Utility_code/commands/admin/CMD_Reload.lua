@@ -1,7 +1,7 @@
 --- reloads building utility
 -- @param data
 -- @return nil
-function CMDreload(data)
+function CMD_Reload(data)
     BU_Reload()
     local user = data.user
     user:display("reloaded", true)

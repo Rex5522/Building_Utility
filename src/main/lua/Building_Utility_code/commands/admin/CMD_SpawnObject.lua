@@ -1,10 +1,10 @@
-function CMDspawnCharacter(data)
+function CMD_SpawnObject(data)
     local formatCommandData = {
-        command = "?spawncharacter",
+        command = "?spawnobject",
         argData = {
             [1] = {
-                argName = "targetID",
-                Description = "the id of the character type you wish to spawn. use   ?spawncharacter list   to list the ids",
+                argName = "targetObjectID",
+                Description = "the id of the object you wish to spawn. use   ?spawnobject list   to list object ids",
                 exampleValue = "25",
                 required = true
             }
@@ -19,5 +19,5 @@ function CMDspawnCharacter(data)
         return
     end
 
-    spawnCommandFunc(user, nil, targetObjectID, G_CharacterOutfitTypes, "character")
+    spawnCommandFunc(user, nil, targetObjectID, G_ObjectIDs, "object")
 end

@@ -1,7 +1,7 @@
 --- despawns a players newest vehicle
 -- @param data
 -- @return nil
-function CMDqmqm(data)
+function CMD_Qmqm(data)
     local user = data.user
 
     if #user.vehicles <= 0 then

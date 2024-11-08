@@ -1,4 +1,4 @@
-function CMDkill(data)
+function CMD_Kill(data)
     local user = data.user
     local targetUser = getUserFromUserID(data.arg1)
 

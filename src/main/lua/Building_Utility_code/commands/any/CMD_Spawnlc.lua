@@ -1,7 +1,7 @@
 --- toggles spawnlc and sets spawnlc target
 -- @param data
 -- @return nil
-function CMDspawnlc(data)
+function CMD_Spawnlc(data)
     local formatCommandData = {
         command = "?spawnlc",
         argData = {

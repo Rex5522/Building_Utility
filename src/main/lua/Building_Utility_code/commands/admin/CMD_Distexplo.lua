@@ -1,7 +1,7 @@
 --- creates a explotion at a distance from the player with a size
 -- @param data
 -- @return nil
-function CMDdistexplo(data)
+function CMD_Distexplo(data)
     local formatCommandData = {
         command = "?distexplo",
         argData = {

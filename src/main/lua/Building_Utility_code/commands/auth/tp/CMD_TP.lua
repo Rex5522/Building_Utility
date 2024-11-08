@@ -1,7 +1,7 @@
 --- teleports stuff
 -- @param data
 -- @return nil
-function CMDtp(data)
+function CMD_TP(data)
     local formatCommandData = {
         command = "?tp",
         argData = {

@@ -1,4 +1,4 @@
-function CMDdie(data)
+function CMD_Die(data)
     local user = data.user
 
     objectID, success = user:getObjectID()

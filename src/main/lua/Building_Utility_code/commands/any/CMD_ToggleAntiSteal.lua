@@ -1,7 +1,7 @@
 --- toggles antisteal for the user
 -- @param data
 -- @return nil
-function CMDantiSteal(data)
+function CMD_AntiSteal(data)
     local user = data.user
     user.antiSteal = not user.antiSteal
     user:updateVehiclesAntiSteal()

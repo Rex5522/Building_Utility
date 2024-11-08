@@ -17,7 +17,7 @@
 --- example chat command
 -- @param data
 -- @return nil
-function exampleChatCommand(data) -- always name this in camel case and same as the file its in
+function CMD_ExampleChatCommand(data) -- always name this in camel case and same as the file its in
 
     
     -- dont forget to create your commandFormat and return it is a user does something wrong like forget a arg that needed. 
