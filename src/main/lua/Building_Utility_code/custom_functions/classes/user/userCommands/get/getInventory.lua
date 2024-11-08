@@ -4,14 +4,23 @@
 function userCommands:getInventory(self)
     local objectID = self:getObjectID()
     local inventory = {}
+    local emptySlots = {}
+
+    if not objectID then
+        BU_Debug("failed to get users inventory")
+        return inventory, emptySlots
+    end
 
     for i = 1, 10 do
-        equipmentID, success = server.getCharacterItem(objectID, i)
+        local equipmentID, success = server.getCharacterItem(objectID, i)
         if success then
             inventory[i] = equipmentID
-            BU_Debug(G_EquipmentIDs[equipmentID].name)
+        end
+
+        if equipmentID == 0 then
+            emptySlots[i] = true
         end
     end
 
-    return inventory
+    return inventory, emptySlots
 end
