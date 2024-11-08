@@ -108,6 +108,11 @@ G_Commands = {
         description = "Equips a specified item for the player.",
         authLevel = 1
     },
+    ["?load"] = {
+        func = CMD_Load,
+        description = "loads a inventory (inv) from a selected name",
+        authLevel = 1
+    },
 
 
     ----------------- any -----------------
