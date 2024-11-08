@@ -1,5 +1,14 @@
 function onCustomCommand(fullMessage, userID, admin, auth, command, ...)
 
+    local userAuthLevel = (function() if admin then return 2 elseif auth then return 1 else return 0 end end)()
+
+
+    if command == "?!FULLRESET!" and admin then
+        g_savedata = {}
+        onCreate(true)
+        return
+    end
+
     command = command:lower()
 
     if command == "?save" or userID == -1 then
@@ -35,21 +44,12 @@ function onCustomCommand(fullMessage, userID, admin, auth, command, ...)
     end
 
     BU_Debug(data)
-
-    if admin and G_Commands.admin[command] ~= nil then
-        G_Commands.admin[command](data)
+    local commandData = G_Commands[command]
+    if commandData and userAuthLevel >= commandData.authLevel then
+        commandData.func(data)
         return
     end
 
-    if auth and G_Commands.auth[command] ~= nil then
-        G_Commands.auth[command](data)
-        return
-    end
-
-    if G_Commands.any[command] ~= nil then
-        G_Commands.any[command](data)
-        return
-    end
 
     display("command not found: "..command, userID, 6)
 end
