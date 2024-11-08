@@ -13,7 +13,7 @@ function userClass:createUser(steamID, name, userID, fake)
     userID = tonumber(userID)
 
     BU_Debug("attempting to create user",steamID,name,userID,fake)
-    
+
     if g_savedata.users[steamID] then
         if not g_savedata.steamIDs[userID] then
             BU_Debug("ERROR: a users data exists but not in g_SteamIDs? tf,", g_savedata.steamIDs )
@@ -25,7 +25,7 @@ function userClass:createUser(steamID, name, userID, fake)
     end
 
 
-    
+
     local user = {
         type = "user",
         hudMode = "normal",
@@ -47,7 +47,18 @@ function userClass:createUser(steamID, name, userID, fake)
         teleportBlocking = false,
         vehicles = {},
         inventorys = {
-            
+            default = {
+                [1] = "27",
+                [2] = "35",
+                [3] = "36",
+                [4] = "0",
+                [5] = "0",
+                [6] = "0",
+                [7] = "11",
+                [8] = "15",
+                [9] = "6",
+                [10] = "76"
+             }
         },
         pos = {
             lastX = 0,
@@ -80,42 +91,25 @@ function userClass:createUser(steamID, name, userID, fake)
                 --     matrix = matrix
                 -- }
             }
-            
+
         }
     }
 
-    
+
     for funcName, func in pairs(userCommands) do
         user[funcName] = function(...) return func(user, ...) end
     end
-
-    
 
     if not fake then
         g_savedata.users[steamID] = deepCopy(user)
         g_savedata.steamIDs[userID] = steamID
         BU_Debug("user created")
         BU_Debug(user)
+        user:setInventory(user.inventorys.default)
         return g_savedata.users[steamID]
     else
         BU_Debug("created a fake user")
         return user
     end
-    
-    
-end
 
--- blockedUsers = { -- blocks users from messaging or requesting. this does nothing rn
---     -- userID = true
--- },
--- requests = { -- not implamented yet and example not finished
---     [index] = { -- example tp request
---         requester = requestingUserObject,
---         requestType = "teleport"
---         requestData = {
---             from = requestingUserObject | requestingUserVehicleObject
---             to = this"user" | thisUsers"vehicle"
---             targetData = thisUserID | thisUserVehicleGroupID
---         }
---     }
--- },
+end
