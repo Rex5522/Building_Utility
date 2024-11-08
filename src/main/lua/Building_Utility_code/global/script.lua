@@ -4,5 +4,5 @@ G_Updated = G_ScriptName.."'s has updated. if you find any issues please report 
 G_BuildType = "DevBuild"
 
 
-G_VersionNumber = "1.02"
+G_VersionNumber = "1.03"
 G_Version = G_ScriptName..G_VersionNumber
