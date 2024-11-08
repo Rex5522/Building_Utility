@@ -20,7 +20,6 @@ function userCommands:updateHud(self)
 
     local hudText = 
     G_ScriptName.."\n".."V: "..G_VersionNumber..
-    "\nStatus: ???"..
 
     "\n\n-----[Server]-----"..
     "\nTPS: "..string.format("%.0f", G_TPS).."/62"..
