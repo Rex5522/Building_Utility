@@ -28,10 +28,9 @@ function CMD_Set(data)
         createCommandFormat(formatCommandData, user)
         return
     end
-    
+
     if compareStrings(typeToSave, "seat", "s") then
-        
-        if tableLength(locations.seats) >= 10 or locations.seats[nameOfItem] then
+        if tableLength(locations.seats) >= 10 and not locations.seats[nameOfItem] then
             user:display("your at your limit of saved seats. please remove some seats", false)
             return
         end
@@ -54,8 +53,7 @@ function CMD_Set(data)
         end
 
     elseif compareStrings(typeToSave, "location", "lc", "l") then
-
-        if tableLength(locations.locations) >= 10 or locations.locations[nameOfItem] then
+        if tableLength(locations.locations) >= 10 and not locations.locations[nameOfItem] then
             user:display("your at your limit of saved locations. please remove some locations", false)
         end
 
@@ -69,7 +67,7 @@ function CMD_Set(data)
 
     elseif compareStrings(typeToSave, "inventory", "inv", "i") then
 
-        if tableLength(user.inventorys) >= 10 or user.inventorys[nameOfItem] then
+        if tableLength(user.inventorys) >= 10 and not user.inventorys[nameOfItem] then
             user:display("your at your limit of saved inventorys. please remove some inventorys", false)
         end
         
