@@ -1,156 +1,662 @@
 G_EquipmentIDs = {
-    -- Outfits
-    [0] = { name = "none", type = "Outfit" },
-    [1] = { name = "diving", type = "Outfit" },
-    [2] = { name = "firefighter", type = "Outfit" },
-    [3] = { name = "scuba", type = "Outfit" },
-    [4] = { name = "parachute", type = "Outfit", int = { [0] = "deployed", [1] = "ready" } },
-    [5] = { name = "arctic", type = "Outfit" },
-    [29] = { name = "hazmat", type = "Outfit" },
-    [74] = { name = "bomb_disposal", type = "Outfit" },
-    [75] = { name = "chest_rig", type = "Outfit" },
-    [76] = { name = "black_hawk_vest", type = "Outfit" },
-    [77] = { name = "plate_vest", type = "Outfit" },
-    [78] = { name = "armor_vest", type = "Outfit" },
-    [79] = { name = "space_suit", type = "Outfit" },
-    [80] = { name = "space_suit_exploration", type = "Outfit" },
+   [0] = {
+      name = "none",
+      default = {
 
-    -- Items
-    [6] = { name = "binoculars", type = "Item" },
-    [7] = { name = "cable", type = "Item" },
-    [8] = { name = "compass", type = "Item" },
-    [9] = { name = "defibrillator", type = "Item", int = "charges" },
-    [10] = { name = "fire_extinguisher", type = "Item", float = "ammo" },
-    [11] = { name = "first_aid", type = "Item", int = "charges" },
-    [12] = { name = "flare", type = "Item", int = "charges" },
-    [13] = { name = "flaregun", type = "Item", int = "ammo" },
-    [14] = { name = "flaregun_ammo", type = "Item", int = "ammo" },
-    [15] = { name = "flashlight", type = "Item", float = "battery" },
-    [16] = { name = "hose", type = "Item", int = { [0] = "hose off", [1] = "hose on" } },
-    [17] = { name = "night_vision_binoculars", type = "Item", float = "battery" },
-    [18] = { name = "oxygen_mask", type = "Item", float = "oxygen" },
-    [19] = { name = "radio", type = "Item", int = "channel", float = "battery" },
-    [20] = { name = "radio_signal_locator", type = "Item", float = "battery" },
-    [21] = { name = "remote_control", type = "Item", int = "channel", float = "battery" },
-    [22] = { name = "rope", type = "Item", int = { [0] = "default length", [1] = "1m", [2] = "2m", [3] = "4m", [4] = "8m", [5] = "16m" } },
-    [23] = { name = "strobe_light", type = "Item", int = { [0] = "off", [1] = "on" }, float = "battery" },
-    [24] = { name = "strobe_light_infrared", type = "Item", int = { [0] = "off", [1] = "on" }, float = "battery" },
-    [25] = { name = "transponder", type = "Item", int = { [0] = "off", [1] = "on" }, float = "battery" },
-    [26] = { name = "underwater_welding_torch", type = "Item", float = "charge" },
-    [27] = { name = "welding_torch", type = "Item", float = "charge" },
-    [28] = { name = "coal/ore/ingot", type = "Item" },
-    [30] = { name = "radiation_detector", type = "Item", float = "battery" },
-    [31] = { name = "c4", type = "Item", int = "ammo" },
-    [32] = { name = "c4_detonator", type = "Item" },
-    [33] = { name = "speargun", type = "Item", int = "ammo" },
-    [34] = { name = "speargun_ammo", type = "Item" },
-    [35] = { name = "pistol", type = "Item", int = "ammo" },
-    [36] = { name = "pistol_ammo", type = "Item" },
-    [37] = { name = "smg", type = "Item", int = "ammo" },
-    [38] = { name = "smg_ammo", type = "Item" },
-    [39] = { name = "rifle", type = "Item", int = "ammo" },
-    [40] = { name = "rifle_ammo", type = "Item" },
-    [41] = { name = "grenade", type = "Item", int = "ammo" },
-    [42] = { name = "machine_gun_ammo_box_k", type = "Item" },
-    [43] = { name = "machine_gun_ammo_box_he", type = "Item" },
-    [44] = { name = "machine_gun_ammo_box_he_frag", type = "Item" },
-    [45] = { name = "machine_gun_ammo_box_ap", type = "Item" },
-    [46] = { name = "machine_gun_ammo_box_i", type = "Item" },
-    [47] = { name = "light_auto_ammo_box_k", type = "Item" },
-    [48] = { name = "light_auto_ammo_box_he", type = "Item" },
-    [49] = { name = "light_auto_ammo_box_he_frag", type = "Item" },
-    [50] = { name = "light_auto_ammo_box_ap", type = "Item" },
-    [51] = { name = "light_auto_ammo_box_i", type = "Item" },
-    [52] = { name = "rotary_auto_ammo_box_k", type = "Item" },
-    [53] = { name = "rotary_auto_ammo_box_he", type = "Item" },
-    [54] = { name = "rotary_auto_ammo_box_he_frag", type = "Item" },
-    [55] = { name = "rotary_auto_ammo_box_ap", type = "Item" },
-    [56] = { name = "rotary_auto_ammo_box_i", type = "Item" },
-    [57] = { name = "heavy_auto_ammo_box_k", type = "Item" },
-    [58] = { name = "heavy_auto_ammo_box_he", type = "Item" },
-    [59] = { name = "heavy_auto_ammo_box_he_frag", type = "Item" },
-    [60] = { name = "heavy_auto_ammo_box_ap", type = "Item" },
-    [61] = { name = "heavy_auto_ammo_box_i", type = "Item" },
-    [62] = { name = "battle_shell_k", type = "Item" },
-    [63] = { name = "battle_shell_he", type = "Item" },
-    [64] = { name = "battle_shell_he_frag", type = "Item" },
-    [65] = { name = "battle_shell_ap", type = "Item" },
-    [66] = { name = "battle_shell_i", type = "Item" },
-    [67] = { name = "artillery_shell_k", type = "Item" },
-    [68] = { name = "artillery_shell_he", type = "Item" },
-    [69] = { name = "artillery_shell_he_frag", type = "Item" },
-    [70] = { name = "artillery_shell_ap", type = "Item" },
-    [71] = { name = "artillery_shell_i", type = "Item" },
-    [72] = { name = "glowstick", type = "Item" },
-    [73] = { name = "dog_whistle", type = "Item" },
-    [81] = { name = "fishing_rod", type = "Item" },
+      },
+      type = "none"
+   },
+   [1] = {
+      name = "diving",
+      default = {
+         float = "100"
+      },
+      type = "Outfit",
+      slotType = "outfit"
+   },
+   [2] = {
+      name = "firefighter",
+      default = {
+         
+      },
+      type = "Outfit",
+      slotType = "outfit"
+   },
+   [3] = {
+      name = "scuba",
+      default = {
+         float = "100"
+      },
+      type = "Outfit",
+      slotType = "outfit"
+   },
+   [4] = {
+      name = "parachute",
+      default = {
+         int = "1"
+      },
+      type = "Outfit",
+      slotType = "outfit"
+   },
+   [5] = {
+      name = "arctic",
+      default = {
 
-    -- Fish
-    [82] = { name = "anchovie", type = "Fish", int = { [0] = "idle", [1] = "flee", [2] = "flop", [3] = "dead" } },
-    [83] = { name = "anglerfish", type = "Fish" },
-    [84] = { name = "arctic_char", type = "Fish" },
-    [85] = { name = "ballan_lizardfish", type = "Fish" },
-    [86] = { name = "barracuda", type = "Fish" },
-    [87] = { name = "bluefin_tuna", type = "Fish" },
-    [88] = { name = "bluefish", type = "Fish" },
-    [89] = { name = "butterfish", type = "Fish" },
-    [90] = { name = "catfish", type = "Fish" },
-    [91] = { name = "cod", type = "Fish" },
-    [92] = { name = "crayfish", type = "Fish" },
-    [93] = { name = "flounder", type = "Fish" },
-    [94] = { name = "goby", type = "Fish" },
-    [95] = { name = "goosefish", type = "Fish" },
-    [96] = { name = "greenling", type = "Fish" },
-    [97] = { name = "grunion", type = "Fish" },
-    [98] = { name = "haddock", type = "Fish" },
-    [99] = { name = "halibut", type = "Fish" },
-    [100] = { name = "herring", type = "Fish" },
-    [101] = { name = "king_mackerel", type = "Fish" },
-    [102] = { name = "lamprey", type = "Fish" },
-    [103] = { name = "lemon_shark", type = "Fish" },
-    [104] = { name = "lingcod", type = "Fish" },
-    [105] = { name = "mackerel", type = "Fish" },
-    [106] = { name = "marlin", type = "Fish" },
-    [107] = { name = "monkfish", type = "Fish" },
-    [108] = { name = "moray_eel", type = "Fish" },
-    [109] = { name = "northern_pike", type = "Fish" },
-    [110] = { name = "pacific_saury", type = "Fish" },
-    [111] = { name = "pollock", type = "Fish" },
-    [112] = { name = "ray", type = "Fish" },
-    [113] = { name = "rockfish", type = "Fish" },
-    [114] = { name = "sailfish", type = "Fish" },
-    [115] = { name = "salmon", type = "Fish" },
-    [116] = { name = "sanddab", type = "Fish" },
-    [117] = { name = "sardine", type = "Fish" },
-    [118] = { name = "scup", type = "Fish" },
-    [119] = { name = "seahorse", type = "Fish" },
-    [120] = { name = "shad", type = "Fish" },
-    [121] = { name = "shark", type = "Fish" },
-    [122] = { name = "sheatfish", type = "Fish" },
-    [123] = { name = "skate", type = "Fish" },
-    [124] = { name = "snapper", type = "Fish" },
-    [125] = { name = "stargazer", type = "Fish" },
-    [126] = { name = "stingray", type = "Fish" },
-    [127] = { name = "striped_bass", type = "Fish" },
-    [128] = { name = "swordfish", type = "Fish" },
-    [129] = { name = "tarpon", type = "Fish" },
-    [130] = { name = "trout", type = "Fish" },
-    [131] = { name = "triggerfish", type = "Fish" },
-    [132] = { name = "tuna", type = "Fish" },
-    [133] = { name = "wahoo", type = "Fish" },
-    [134] = { name = "weakfish", type = "Fish" },
-    [135] = { name = "whale", type = "Fish" },
-    [136] = { name = "whitefish", type = "Fish" },
-    [137] = { name = "wrasse", type = "Fish" },
-    [138] = { name = "yellowfin_tuna", type = "Fish" },
-    [139] = { name = "yellowtail", type = "Fish" },
-    [140] = { name = "zander", type = "Fish" },
-    [141] = { name = "squid", type = "Fish" },
-    [142] = { name = "octopus", type = "Fish" },
-    [143] = { name = "lobster", type = "Fish" },
-    [144] = { name = "shrimp", type = "Fish" },
-    [145] = { name = "crab", type = "Fish" },
-    [146] = { name = "king_crab", type = "Fish" },
-    [147] = { name = "snow_crab", type = "Fish" },
-    [148] = { name = "stone_crab", type = "Fish" }
+      },
+      type = "Outfit",
+      slotType = "outfit"
+   },
+   [6] = {
+      name = "binoculars",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [7] = {
+      name = "cable",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [8] = {
+      name = "compass",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [9] = {
+      name = "defibrillator",
+      default = {
+         int = "4"
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [10] = {
+      slotType = "largeItem",
+      default = {
+         float = "9.0"
+      },
+      type = "Item",
+      name = "fire_extinguisher"
+   },
+   [11] = {
+      name = "first_aid",
+      default = {
+         int = "4"
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [12] = {
+      name = "flare",
+      default = {
+         int = "4"
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [13] = {
+      name = "flaregun",
+      default = {
+         int = "1"
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [14] = {
+      name = "flaregun_ammo",
+      default = {
+         int = "4"
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [15] = {
+      slotType = "item",
+      default = {
+         float = "100"
+      },
+      type = "Item",
+      name = "flashlight"
+   },
+   [16] = {
+      name = "hose",
+      default = {
+         int = "0"
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [17] = {
+      slotType = "item",
+      default = {
+         float = "100"
+      },
+      type = "Item",
+      name = "night_vision_binoculars"
+   },
+   [18] = {
+      slotType = "item",
+      default = {
+         float = "100"
+      },
+      type = "Item",
+      name = "oxygen_mask"
+   },
+   [19] = {
+      slotType = "item",
+      default = {
+         int = "0",
+         float = "100"
+      },
+      type = "Item",
+      name = "radio"
+   },
+   [20] = {
+      slotType = "largeItem",
+      default = {
+         float = "100"
+      },
+      type = "Item",
+      name = "radio_signal_locator"
+   },
+   [21] = {
+      slotType = "item",
+      default = {
+         int = "0",
+         float = "100"
+      },
+      type = "Item",
+      name = "remote_control"
+   },
+   [22] = {
+      name = "rope",
+      default = {
+         int = "0"
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [23] = {
+      slotType = "item",
+      default = {
+         int = "0",
+         float = "100"
+      },
+      type = "Item",
+      name = "strobe_light"
+   },
+   [24] = {
+      slotType = "item",
+      default = {
+         int = "0",
+         float = "100"
+      },
+      type = "Item",
+      name = "strobe_light_infrared"
+   },
+   [25] = {
+      slotType = "item",
+      default = {
+         int = "25",
+         float = "100"
+      },
+      type = "Item",
+      name = "transponder"
+   },
+   [26] = {
+      slotType = "largeItem",
+      default = {
+         float = "250"
+      },
+      type = "Item",
+      name = "underwater_welding_torch"
+   },
+   [27] = {
+      slotType = "largeItem",
+      default = {
+         float = "400"
+      },
+      type = "Item",
+      name = "welding_torch"
+   },
+   [28] = {
+      name = "coal/ore/ingot",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [29] = {
+      name = "hazmat",
+      default = {
+
+      },
+      type = "Outfit",
+      slotType = "outfit"
+   },
+   [30] = {
+      slotType = "item",
+      default = {
+         float = "100"
+      },
+      type = "Item",
+      name = "radiation_detector"
+   },
+   [31] = {
+      name = "c4",
+      default = {
+         int = "1"
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [32] = {
+      name = "c4_detonator",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [33] = {
+      name = "speargun",
+      default = {
+         int = "1"
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [34] = {
+      name = "speargun_ammo",
+      default = {
+         int = "8"
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [35] = {
+      name = "pistol",
+      default = {
+         int = "17"
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [36] = {
+      name = "pistol_ammo",
+      default = {
+         int = "17"
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [37] = {
+      name = "smg",
+      default = {
+         int = "40"
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [38] = {
+      name = "smg_ammo",
+      default = {
+         int = "40"
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [39] = {
+      name = "rifle",
+      default = {
+         int = "30"
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [40] = {
+      name = "rifle_ammo",
+      default = {
+         int = "30"
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [41] = {
+      name = "grenade",
+      default = {
+         int = "1"
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [42] = {
+      name = "machine_gun_ammo_box_k",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [43] = {
+      name = "machine_gun_ammo_box_he",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [44] = {
+      name = "machine_gun_ammo_box_he_frag",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [45] = {
+      name = "machine_gun_ammo_box_ap",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [46] = {
+      name = "machine_gun_ammo_box_i",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [47] = {
+      name = "light_auto_ammo_box_k",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [48] = {
+      name = "light_auto_ammo_box_he",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [49] = {
+      name = "light_auto_ammo_box_he_frag",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [50] = {
+      name = "light_auto_ammo_box_ap",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [51] = {
+      name = "light_auto_ammo_box_i",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [52] = {
+      name = "rotary_auto_ammo_box_k",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [53] = {
+      name = "rotary_auto_ammo_box_he",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [54] = {
+      name = "rotary_auto_ammo_box_he_frag",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [55] = {
+      name = "rotary_auto_ammo_box_ap",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [56] = {
+      name = "rotary_auto_ammo_box_i",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [57] = {
+      name = "heavy_auto_ammo_box_k",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [58] = {
+      name = "heavy_auto_ammo_box_he",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [59] = {
+      name = "heavy_auto_ammo_box_he_frag",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [60] = {
+      name = "heavy_auto_ammo_box_ap",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [61] = {
+      name = "heavy_auto_ammo_box_i",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [62] = {
+      name = "battle_shell_k",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [63] = {
+      name = "battle_shell_he",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [64] = {
+      name = "battle_shell_he_frag",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [65] = {
+      name = "battle_shell_ap",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [66] = {
+      name = "battle_shell_i",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [67] = {
+      name = "artillery_shell_k",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [68] = {
+      name = "artillery_shell_he",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [69] = {
+      name = "artillery_shell_he_frag",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [70] = {
+      name = "artillery_shell_ap",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [71] = {
+      name = "artillery_shell_i",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   },
+   [72] = {
+      name = "glowstick",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [73] = {
+      name = "dog_whistle",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "item"
+   },
+   [74] = {
+      name = "bomb_disposal",
+      default = {
+
+      },
+      type = "Outfit",
+      slotType = "outfit"
+   },
+   [75] = {
+      name = "chest_rig",
+      default = {
+
+      },
+      type = "Outfit",
+      slotType = "outfit"
+   },
+   [76] = {
+      name = "black_hawk_vest",
+      default = {
+
+      },
+      type = "Outfit",
+      slotType = "outfit"
+   },
+   [77] = {
+      name = "plate_vest",
+      default = {
+
+      },
+      type = "Outfit",
+      slotType = "outfit"
+   },
+   [78] = {
+      name = "armor_vest",
+      default = {
+
+      },
+      type = "Outfit",
+      slotType = "outfit"
+   },
+   [79] = {
+      name = "space_suit",
+      default = {
+         float = "100"
+      },
+      type = "Outfit",
+      slotType = "outfit"
+   },
+   [80] = {
+      name = "space_suit_exploration",
+      default = {
+         float = "100"
+      },
+      type = "Outfit",
+      slotType = "outfit"
+   },
+   [81] = {
+      name = "fishing_rod",
+      default = {
+
+      },
+      type = "Item",
+      slotType = "largeItem"
+   }
 }
