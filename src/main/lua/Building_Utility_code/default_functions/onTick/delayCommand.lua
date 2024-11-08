@@ -17,7 +17,7 @@ function delayCommand(commandToDelay, ticksToDelayFor, ...) -- DO ASSUME THINGS 
     end
 
     for index = #G_ServerSettings.delayedCommands, 1, -1 do
-        commandData = G_ServerSettings.delayedCommands[index]
+        local commandData = G_ServerSettings.delayedCommands[index]
 
         commandData.delayTicksLeft = commandData.delayTicksLeft - 1
         if commandData.delayTicksLeft == 0 then
