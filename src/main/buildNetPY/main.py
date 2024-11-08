@@ -5,7 +5,7 @@ import os
 
 logs = ""
 app = Flask(__name__)
-
+chunkedData = []
 user_input = {}
 
 def accept_terminal_input():
@@ -15,6 +15,8 @@ def accept_terminal_input():
         print('=' * 200)
         print("command: " + user_input)
         print('=' * 200)
+        if user_input == "test":
+            print(chunkedData)
         
         if user_input == "":
             print(logs)
@@ -27,13 +29,26 @@ def accept_terminal_input():
 @app.route('/BU_Debug', methods=['GET'])
 def handle_get_request():
     global logs
-    message = request.args.get("message")
-    
-    logs += "\n" + message
+    data = request.args.get("data")
+    error_code = request.args.get("ERROR")
+    isEnd = request.args.get("end")
+    response_data = jsonify("received") 
 
-    response_data = "received"
-    return jsonify(response_data)  # Send the response back
 
+
+    if error_code:
+        print(error_code)
+
+    elif isEnd and len(chunkedData) > 0:
+        for index, item in enumerate(chunkedData):
+            logs += item
+            
+        chunkedData.clear()
+    elif data:
+        chunkedData.append(data)
+
+
+    return response_data  # Send the response back
 
 
 if __name__ == '__main__':
