@@ -55,7 +55,7 @@ function tp_getLocation(user, admin, arg1Data, arg2Data)
 
     elseif locationArg[2] == "v" then
 
-        targetVehicle = locationArg[1]
+        local targetVehicle = locationArg[1]
         targetUser = getUserFromUserID(targetVehicle.ownerID)
 
         if not tp_canTeleportToTarget(user, admin, targetUser) then
