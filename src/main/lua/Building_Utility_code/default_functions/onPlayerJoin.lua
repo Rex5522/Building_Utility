@@ -13,8 +13,8 @@ function onPlayerJoin(steamID, name, userID, admin, auth)
     if not user then
         BU_Debug("user not found. creating user")
         user = userClass:createUser(steamID, name, userID)
-        user:display("welcome to " .. G_ScriptName .. "!\ntype ?help for a list of commands\n(pssst! use ?? to delspawn your newest vehicle)", true)
-        user:display("welcome to " .. G_ScriptName .. "!\ntype ?help for a list of commands\n(pssst! use ?? to delspawn your newest vehicle)", true, true)
+        user:display("welcome to " .. G_ScriptName .. "!\ntype ?help for a list of commands\n(pssst! use ?? to despawn your newest vehicle)", true)
+        user:display("welcome to " .. G_ScriptName .. "!\ntype ?help for a list of commands\n(pssst! use ?? to despawn your newest vehicle)", true, true)
     else
         BU_Debug("user found")
     end
