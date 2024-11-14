@@ -15,3 +15,4 @@ src/main/lua/Building_Utility_code/dvdata.json
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+notes/TODO.txt
