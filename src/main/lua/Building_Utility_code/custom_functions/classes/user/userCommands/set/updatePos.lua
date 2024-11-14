@@ -11,7 +11,7 @@ function userCommands:updatePos(self)
     local deltaX = x - self.pos.lastX
     local deltaY = y - self.pos.lastY
     local deltaZ = z - self.pos.lastZ
-    
+
     local timeDiff = math.abs(G_Tick - (self.pos.lastUpdated or 1))
     if timeDiff < 1 then
         BU_Debug("already updated this tick. timeDiff: "..tostring(timeDiff))
@@ -22,8 +22,18 @@ function userCommands:updatePos(self)
     local distanceOverTime = (distance / timeDiff)
     local speed = distanceOverTime * 60 -- tick speed
 
-    self.pos.previousSpeed = self.pos.speed
-    self.pos.speed = speed
+    table.insert(self.pos.previousSpeeds, speed)
+
+    while #self.pos.previousSpeeds > 12 do
+        table.remove(self.pos.previousSpeeds, 1)
+    end
+
+    local total = 0
+    for _, speedValue in pairs(self.pos.previousSpeeds) do
+        total = total + speedValue
+    end
+
+    self.pos.speed = total / #self.pos.previousSpeeds
 
     self.pos.lastUpdated = G_Tick
     self.pos.lastX = x

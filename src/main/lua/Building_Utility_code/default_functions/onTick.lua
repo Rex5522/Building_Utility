@@ -3,7 +3,10 @@ function onTick(tick)
 
     for userID, user in pairs(getActiveUsers()) do
 
-        if G_Tick % 10 == 0 then
+        if G_Tick % 60 == 0 then
+        end
+        
+        if G_Tick % 5 == 0 then
             user:updatePos()
             user:updateHud() -- update pos must come first
         end
@@ -11,6 +14,8 @@ function onTick(tick)
         regen(user)
     end
 
-    getTPS()
+    if G_Tick % 60 == 0 then
+        getTPS()
+    end
     delayCommand()
 end
