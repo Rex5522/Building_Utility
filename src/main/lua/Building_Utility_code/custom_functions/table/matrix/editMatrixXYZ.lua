@@ -5,9 +5,10 @@
 ---@param y integer
 ---@return table
 function editMatrixXYZ(matrix, x, vertical, y)
-    matrix[13] = x
-    matrix[14] = vertical
-    matrix[15] = y
+    local newMatrix = deepCopy(matrix)
+    newMatrix[13] = x
+    newMatrix[14] = vertical
+    newMatrix[15] = y
 
-    return matrix
+    return newMatrix
 end
