@@ -4,7 +4,7 @@
 function getVehicleFromVehicleID(vehicleID)
     vehicleData, success = server.getVehicleData(vehicleID)
     if not success then
-        BU_Debug("failed to get vehicle data. vehicle: "..vehicleID)
+        BU_Debug("failed to get vehicle data. vehicle: "..tostring(vehicleID))
         return nil
     end
 
