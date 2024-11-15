@@ -1,12 +1,12 @@
 function onVehicleDespawn(vehicleID, despawnerID)
-    local groupID = handleVehicleLogs(false, vehicleID)
+    local groupID = handleVehicleDespawn(vehicleID, despawnerID)
 
     local vehicle = getVehicleFromGroupID(groupID)
     if not vehicle then
-        BU_Debug("vehicle not found. group: "..tostring(groupID))
+        BU_Debug("vehicle not found. group: "..tostring(groupID),"vehicleID: "..tostring(vehicleID))
         return
     end
-    
+
 
 
     vehicle:removeSubBody(vehicleID)

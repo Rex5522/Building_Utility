@@ -1,5 +1,5 @@
 function onGroupSpawn(groupID, ownerID, x, y, z, cost)
-    local groupVehicles = handleVehicleLogs(true, nil, groupID, ownerID)
+    local groupVehicles = handleVehicleSpawn(groupID, ownerID)
 
     if ownerID == -1 then
         if not groupVehicles then
