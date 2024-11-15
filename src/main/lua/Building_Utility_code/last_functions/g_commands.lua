@@ -113,6 +113,11 @@ G_Commands = {
         description = "loads a inventory (inv) from a selected name",
         authLevel = 1
     },
+    ["?flip"] = {
+        func = CMD_Flip,
+        description = "flips the target vehicle",
+        authLevel = 1
+    },
 
 
     ----------------- any -----------------
