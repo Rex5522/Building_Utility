@@ -72,7 +72,7 @@ function CMD_TP(data)
     }
 
     arg1Data = getArgValue(IDOrNameToTeleport, prefixes, lookupTables, functions)
-    BU_Debug(arg1Data)
+    BU_Debug(1, arg1Data)
     if not arg1Data[2] or type(arg1Data[1]) ~= "table" then
         user:display((G_Prefixes[arg1Data[2]] or "ERROR").." not found\n"..arg1Data[3], false)
         return
@@ -80,7 +80,7 @@ function CMD_TP(data)
 
     if IDOrNameToTeleportTo then
         arg2Data = getArgValue(IDOrNameToTeleportTo, prefixes, lookupTables, functions)
-        BU_Debug(arg2Data)
+        BU_Debug(2, arg2Data)
         if not arg2Data[2] or type(arg2Data[1]) ~= "table" then
             user:display((G_Prefixes[arg2Data[2]] or "ERROR").." not found\n"..arg2Data[3], false)
             return
@@ -141,7 +141,7 @@ function CMD_TP(data)
 
             groupVehicles, success = server.getVehicleGroup(vehicle.groupID)
             if success then
-                status = teleportVehicles(targetLocation, groupVehicles)
+                status = teleportVehicles(targetLocation, groupVehicles, nil, nil, nil, (arg2Data[2] == "p" or arg2Data[2] == "u"))
                 if status == 1 then
                     user:display("unable to find a safe location", false)
                     return
@@ -161,8 +161,7 @@ function CMD_TP(data)
                 return
             end
 
-
-            status = teleportVehicles(targetLocation, {[1] = arg1Data[4]})
+            status = teleportVehicles(targetLocation, {[1] = arg1Data[4]}, nil, nil, nil, (arg2Data[2] == "p" or arg2Data[2] == "u"))
             if status == 1 then
                 user:display("unable to find a safe location", false)
                 return

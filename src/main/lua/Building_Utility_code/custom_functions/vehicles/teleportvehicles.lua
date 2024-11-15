@@ -5,22 +5,20 @@
 ---@param safe boolean|nil
 ---@param teleportSeatedCreatures boolean|nil
 ---@return integer
-function teleportVehicles(targetLocation, vehiclesToTeleport, nearbyOnly, safe, teleportSeatedCreatures)
-    if teleportSeatedCreatures == nil then
-        teleportSeatedCreatures = true
-    end
-    if nearbyOnly == nil then
-        nearbyOnly = true
-    end
-
+function teleportVehicles(targetLocation, vehiclesToTeleport, nearbyOnly, safe, teleportSeatedCreatures, alignToTarget)
     if not targetLocation or not vehiclesToTeleport then
         BU_Debug("NOT ENOUGH ARGS")
         return -1
     end
 
     local success
+    teleportSeatedCreatures = teleportSeatedCreatures or true
+    nearbyOnly = nearbyOnly or true
+
     targetLocation = moveMatrix(targetLocation, 0, 5, 0)
-    relativeToMatrix = server.getVehiclePos(vehiclesToTeleport[1])
+    if not alignToTarget then
+        targetLocation = resetMatrixRotation(targetLocation)
+    end
 
     if safe then
         local safeValue = findSafeLocation(targetLocation, 70, 20)
@@ -41,7 +39,7 @@ function teleportVehicles(targetLocation, vehiclesToTeleport, nearbyOnly, safe, 
         for index, seat in pairs(seats.seated) do -- yeet seat data to the vehicle object and let on load take care of it
             vehicleID = seat.vehicleID
             vehicle = getVehicleFromVehicleID(vehicleID)
-            
+
             if vehicle then
                 targetTable = vehicle.teleportUsersToSeat
                 if not targetTable[vehicleID] then
@@ -50,7 +48,7 @@ function teleportVehicles(targetLocation, vehiclesToTeleport, nearbyOnly, safe, 
                 table.insert(targetTable[vehicleID], seat)
 
                 local success = server.setObjectPos(seat.seated_id, targetLocation)
-                
+
                 local user = getUserFromUserID(seat.seated_peer_id)
                 if user then
                     user:display("you are being teleported with the vehicle")
@@ -61,21 +59,25 @@ function teleportVehicles(targetLocation, vehiclesToTeleport, nearbyOnly, safe, 
         end
     end
 
+    local mainVehicleMatrix = server.getVehiclePos(vehiclesToTeleport[1])
     if nearbyOnly then
         BU_Debug("nearby only")
-        vehiclesToTeleport = getNearbyVehicles(relativeToMatrix, vehiclesToTeleport, 150)
+        vehiclesToTeleport = getNearbyVehicles(mainVehicleMatrix, vehiclesToTeleport, 150)
     else
-        vehiclesToTeleport = getVehiclesPos(vehiclesToTeleport)
+        vehiclesToTeleport = getVehicleLocationsFromGroup(vehiclesToTeleport)
     end
 
-    for vehicleID, vehicleData in pairs(vehiclesToTeleport) do
+    local calculatedVehicleMatrices = calculateVehicleRelativeMove(targetLocation, orderTable(vehiclesToTeleport, "matrix"))
 
-        finalMatrix = calculateRelativeMatrix(targetLocation, relativeToMatrix, vehicleData.matrix)
-
-        success = server.setVehiclePos(vehicleID, finalMatrix)
+    for index, vehicleData in pairs(vehiclesToTeleport) do
+        if calculatedVehicleMatrices[index] then
+            success = server.setVehiclePos(vehicleData.vehicleID, calculatedVehicleMatrices[index].matrix)
+        else
+            BU_Debug("WARNING: a pos index was nil")
+        end
 
         if not success then
-            BU_Debug("failed to move vehicle: "..tostring(vehicleID))
+            BU_Debug("failed to move vehicle: "..tostring(vehicleData.vehicleID))
         end
     end
 

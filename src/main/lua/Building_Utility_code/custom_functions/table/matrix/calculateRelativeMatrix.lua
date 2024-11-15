@@ -1,20 +1,19 @@
----calculates a matrixs position reletive to a perent matrix and sets it to a targetlocation
----@param targetMatrix table
----@param parentMatrix table
----@param relativeTOPerentMatrix table
----@return table
-function calculateRelativeMatrix(targetMatrix, parentMatrix, relativeTOPerentMatrix)
-    if not targetMatrix or not parentMatrix or not relativeTOPerentMatrix then
-        BU_Debug("NOT ENOUGH ARGS: a table was nil")
-        return targetMatrix
+--- Calculates a matrix's position relative to a parent matrix and sets it to a target location.
+---@param groupVehicles table -- A ORDERED table containing the matrices of each vehicle in the group.
+---@param targetLocation table -- The target location matrix to which we want to align.
+---@return table -- A table containing the resulting matrices.
+function calculateVehicleRelativeMove(targetLocation, groupVehicles)
+    local mainVehicleMatrix = groupVehicles[1]
+    local invertedMainVehicleMatrix = matrix.invert(mainVehicleMatrix)
+
+    local returnMatrices = {}
+    for index, vehicleMatrix in ipairs(groupVehicles) do
+        local relativeMatrix = matrix.multiply(invertedMainVehicleMatrix, vehicleMatrix)
+        local calculatedMatrix = matrix.multiply(targetLocation, relativeMatrix)
+        table.insert(returnMatrices, {
+            matrix = calculatedMatrix
+        })
     end
 
-    local px, py, pz = matrix.position(parentMatrix)
-    local rx, ry, rz = matrix.position(relativeTOPerentMatrix)
-    local tx, ty, tz = matrix.position(targetMatrix)
-
-    local x3, y3, z3 = rx - px, ry - py, rz - pz
-    local fx, fy, fz = x3 + tx, y3 + ty, z3 + tz
-    
-    return editMatrixXYZ(relativeTOPerentMatrix, fx, fy, fz)
+    return returnMatrices
 end

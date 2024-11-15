@@ -1,8 +1,8 @@
----gets vehicles within a distance from a list of vehicles
----@param targetLocaion table
----@param vehicles table, {[1] = vehicleID}
----@param maxDistance integer
----@return table
+--- Gets vehicles within a specified distance from a target location.
+--- @param targetLocaion table -- The matrix of the target location to measure distance from.
+--- @param vehicles table -- A ORDERED table containing vehicle IDs, where each entry is a vehicle ID.
+--- @param maxDistance integer -- The maximum distance to include vehicles in the result.
+--- @return table -- A table of vehicles within the specified distance, each entry containing distance, matrix, and vehicle ID.
 function getNearbyVehicles(targetLocaion, vehicles, maxDistance)
     local nearbyVehicles = {}
 
@@ -11,10 +11,11 @@ function getNearbyVehicles(targetLocaion, vehicles, maxDistance)
         if success then
             dist = matrix.distance(targetLocaion, vehicleMatrix)
             if dist < maxDistance then
-                nearbyVehicles[vehicleID] = {
+                table.insert(nearbyVehicles, {
                     distanceFromMainBody = dist,
-                    matrix = vehicleMatrix
-                }
+                    matrix = vehicleMatrix,
+                    vehicleID = vehicleID
+                })
             end
         else
             BU_Debug("failed to get vehicle pos")
