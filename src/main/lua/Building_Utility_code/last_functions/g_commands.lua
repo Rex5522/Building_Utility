@@ -166,6 +166,11 @@ G_Commands = {
         description = "Despawns your newest vehicle.",
         authLevel = 0
     },
+    ["?c"] = {
+        func = CMD_Qmqm,
+        description = "Despawns your newest vehicle.",
+        authLevel = 0
+    },
     ["?autoseat"] = {
         func = CMD_AutoSeat,
         description = "Toggles autoseat for the player (Automatically seats player in seat named autoseat upon spawning a vehicle).",
