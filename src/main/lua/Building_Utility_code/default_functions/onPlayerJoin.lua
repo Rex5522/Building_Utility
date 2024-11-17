@@ -1,5 +1,6 @@
 function onPlayerJoin(steamID, name, userID, admin, auth)
     BU_Debug("start of onplayerjoin", steamID, name, userID, admin, auth)
+
     steamID = tostring(steamID)
 
     if steamID == "0" then
@@ -8,13 +9,15 @@ function onPlayerJoin(steamID, name, userID, admin, auth)
         return
     end
 
-
     local user = getUserFromSteamID(steamID)
     if not user then
         BU_Debug("user not found. creating user")
         user = userClass:createUser(steamID, name, userID)
-        user:display("welcome to " .. G_ScriptName .. "!\ntype ?help for a list of commands\n(pssst! use ?? to despawn your newest vehicle)", true)
-        user:display("welcome to " .. G_ScriptName .. "!\ntype ?help for a list of commands\n(pssst! use ?? to despawn your newest vehicle)", true, true)
+
+        local welcomeMessage = "welcome to " .. G_ScriptName .. "!\ntype ?help for a list of commands\n(pssst! use ?? or ?c to despawn your newest vehicle)"
+
+        user:display(welcomeMessage, true)
+        user:display(welcomeMessage, true, true)
     else
         BU_Debug("user found")
     end
