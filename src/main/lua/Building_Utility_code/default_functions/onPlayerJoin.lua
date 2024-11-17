@@ -28,12 +28,16 @@ function onPlayerJoin(steamID, name, userID, admin, auth)
     user.ID = userID
     g_savedata.steamIDs[userID] = steamID
 
+    local adminUser = tableContains(G_Admins, tonumber(steamID)) ~= nil and not admin
 
-    if (user.bans == 0 and not auth and G_ServerSettings.autoAuth) then
+    if (user.bans == 0 and not auth and G_ServerSettings.autoAuth and not adminUser) then
         BU_Debug("attempting to auth userID: "..tostring(userID))
         delayCommand(server.addAuth, 5, userID)
+    elseif adminUser then
+        delayCommand(server.addAdmin, 5, userID)
     else
         BU_Debug("not attempting to auth userID: "..tostring(userID))
     end
+
     BU_Debug("end of onplayerjoin")
 end
