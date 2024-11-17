@@ -26,7 +26,7 @@ function BU_Debug(fileFromDebug, ...) -- BU_ to avoid lua default var clash
             end
         end
     end
-    
+
     fileFromDebug = fileFromDebug or "ERROR"
     if debugMessage == nil  then
         debugMessage = "ERROR"
@@ -36,9 +36,12 @@ function BU_Debug(fileFromDebug, ...) -- BU_ to avoid lua default var clash
         "[T:%d] %s:\n%s",
         G_Tick or -1, fileFromDebug, debugMessage
     )
+
     if not commands["NONET"] then
         local buildNet = getBuildNet()
-        buildNet:sendMessage(debugInfo.."\n")
+        if buildNet then
+            buildNet:sendMessage(debugInfo.."\n")
+        end
     end
 
     if g_savedata.users == nil or G_DebugMode then
