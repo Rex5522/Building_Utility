@@ -8,7 +8,7 @@ function booleanTranslator(bool, returnType)
     end
 
     if bool == nil then
-        return nil
+        return "ERROR"
     end
 
     if returnType == 1 then
@@ -25,4 +25,5 @@ function booleanTranslator(bool, returnType)
         end
     end
 
+    return "ERROR"
 end
