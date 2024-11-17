@@ -80,6 +80,6 @@ function onGroupSpawn(groupID, ownerID, x, y, z, cost)
     owner.name.."'s vehicle", 0, mainToolTip, 100, 100, 100, 255)
 
     if vehicle.totalBodys > 100 and owner.autoSeat then
-        owner:display("your vehicle has to many sub bodys ("..tostring(vehicle.totalBodys).."). autoSeat disabled for this vehicle")
+        owner:display("your vehicle has to many sub bodys ("..tostring(vehicle.totalBodys).."). autoSeat disabled for this vehicle", false)
     end
 end
