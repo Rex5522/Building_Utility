@@ -5,9 +5,8 @@ function BU_Reload(override)
         return
     end
     BU_Debug("---------------------------RELOADING-------------------------------")
-
     local startTile = server.getStartTile()
-    g_savedata.misc = {
+    g_savedata.misc = g_savedata.misc or {
         hudID = 762,
         defaultAutoSeatNames = {
             ["main"] = "main",
@@ -38,6 +37,7 @@ function BU_Reload(override)
     G_ServerSettings = g_savedata.serverSettings
     G_VehicleLog = g_savedata.serverSettings.vehicleLog
 
+
     -- update files
     BU_UpdateFiles()
 
@@ -49,5 +49,6 @@ function BU_Reload(override)
     end
 
     G_ReloadedThisReload = true
+
     BU_Debug("----------------------------RELOADED--------------------------------")
 end
