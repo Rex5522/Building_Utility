@@ -7,7 +7,6 @@ function createBuildNet()
         buildNet[name] = function(...) return func(buildNet, ...) end
     end
 
-    buildNet:reload()
     g_savedata.buildNet = buildNet
 
     return buildNet

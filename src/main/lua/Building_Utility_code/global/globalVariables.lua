@@ -43,6 +43,7 @@ G_Admins = { -- WARNING DO NOT EDIT THE SCRIPT IN THE IN-GAME EDITER. IT WILL BR
 
 -- vars
 G_DebugMode = false
+G_ReloadedThisReload = false
 G_TPS = 0
 G_Tick = 0
 G_HudModes = { }
