@@ -15,7 +15,7 @@ function BU_UpdateFiles()
         end
     end
 
-    compareTables(g_savedata.serverSettings, getFakeServerSettings(), true)
+    compareTables(getFakeServerSettings(), g_savedata.serverSettings, true)
 
     updateClassFunctionsAndFix(g_savedata.users, userCommands, userClass:createUser("010101", "fakeName", 0, true))
 
