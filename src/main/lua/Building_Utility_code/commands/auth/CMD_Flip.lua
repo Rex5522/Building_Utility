@@ -15,17 +15,17 @@ function CMD_Flip(data)
     local user = data.user
     local targetID = data.arg1
 
+    if not targetID or targetID == "help" then
+        createCommandFormat(formatCommandData, user)
+        return
+    end
+
     local canEdit, statusCode = user:canModifyVehicle(targetID)
     if statusCode == 1 then
         user:display("cannot find vehicle", false)
         return
     elseif not canEdit then
         user:display("you do not have permission to flip this vehicle", false)
-        return
-    end
-
-    if not targetID or targetID == "help" then
-        createCommandFormat(formatCommandData, user)
         return
     end
 
