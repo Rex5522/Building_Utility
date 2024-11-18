@@ -7,6 +7,7 @@ function getFakeServerSettings()
         dedicatedServer = false,
         tick = 0,
         version = G_VersionNumber,
+        workshopAllowed = (nilOrValue(property.checkbox("workshop allowed", true), true)),
         delayedCommands = {
             -- [index] = {
             --     delayTicksLeft = ticksToDelayFor,

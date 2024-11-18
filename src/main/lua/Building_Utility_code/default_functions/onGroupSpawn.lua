@@ -6,7 +6,7 @@ function onGroupSpawn(groupID, ownerID, x, y, z, cost)
             return
         end
 
-        for index, vehicleID in ipairs(groupVehicles) do
+        for _, vehicleID in ipairs(groupVehicles) do
             local toolTip = string.format(
                 "owner: %s\ngroupID: %d\nvehicleID: %d",
                 "script", groupID, vehicleID
@@ -26,7 +26,7 @@ function onGroupSpawn(groupID, ownerID, x, y, z, cost)
 
 
 
-    
+
     -- check vehicle limit
     if #owner.vehicles < g_savedata.serverSettings.vehicleLimit or owner:getStatus() == 2 then
         table.insert(owner.vehicles, groupID)
@@ -40,21 +40,8 @@ function onGroupSpawn(groupID, ownerID, x, y, z, cost)
         BU_Debug("groupVehicles was nil")
         return
     end
-    
+
     local vehicle = vehicleClass:createVehicle(groupID, ownerID, cost, owner.antiSteal, groupVehicles)
-
-    if owner.spawnlc then
-        local targetLocation = owner.savedLocations.locations[owner.spawnlcTargetLocation]
-        if targetLocation then
-            teleportVehicles(targetLocation.matrix, groupVehicles)
-            owner:teleport(targetLocation.matrix)
-            owner:display("vehicle teleported to spawnlc", true)
-        else
-            owner:display("no valid spawnlc selected. vehicle not teleported. type ?spawnlc help for more information", false)
-        end
-    end
-
-
     for index, vehicleID in pairs(groupVehicles) do
         local vehicleData, success = server.getVehicleData(vehicleID)
         local toolTip = string.format(
@@ -67,13 +54,35 @@ function onGroupSpawn(groupID, ownerID, x, y, z, cost)
         end
 
         if success and #vehicleData.authors > 0 then
-            for index, autherData in pairs(vehicleData.authors) do
+            vehicle.workshopVehicle = true
+
+            for _, autherData in pairs(vehicleData.authors) do
                 toolTip = toolTip.."\n "..autherData.name
+                if owner.steamID == tostring(autherData.steam_id) then
+                    vehicle.isOwnerOfWorkshopVehicle = true
+                end
             end
         end
-        
+
         server.setVehicleEditable(vehicleID, not owner.antiSteal)
         server.setVehicleTooltip(vehicleID, toolTip)
+    end
+
+    if vehicle.workshopVehicle and not vehicle.isOwnerOfWorkshopVehicle and not G_ServerSettings.workshopAllowed and (owner:getStatus() ~= 2) then
+        owner:display("you spawned a workshop vehicle that you do not own. no workshop vehicles are allowed on this server", false)
+        server.despawnVehicleGroup(groupID, true)
+        return
+    end
+
+    if owner.spawnlc then
+        local targetLocation = owner.savedLocations.locations[owner.spawnlcTargetLocation]
+        if targetLocation then
+            teleportVehicles(targetLocation.matrix, groupVehicles)
+            owner:teleport(targetLocation.matrix)
+            owner:display("vehicle teleported to spawnlc", true)
+        else
+            owner:display("no valid spawnlc selected. vehicle not teleported. type ?spawnlc help for more information", false)
+        end
     end
 
     server.addMapObject(-1, groupID + 7000, 1, 1, 0, 0, 0, 0, vehicle.mainBodyID, nil,
