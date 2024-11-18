@@ -2,7 +2,7 @@
 -- @param data
 -- @return nil
 function CMD_Reload(data)
-    BU_Reload()
+    BU_Reload(true)
     local user = data.user
     user:display("reloaded", true)
 end
