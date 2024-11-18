@@ -141,7 +141,7 @@ function CMD_TP(data)
 
             groupVehicles, success = server.getVehicleGroup(vehicle.groupID)
             if success then
-                status = teleportVehicles(targetLocation, groupVehicles, nil, nil, nil, (arg2Data[2] == "p" or arg2Data[2] == "u"))
+                status = teleportVehicles(targetLocation, groupVehicles, nil, nil, nil, true)
                 if status == 1 then
                     user:display("unable to find a safe location", false)
                     return
@@ -161,7 +161,7 @@ function CMD_TP(data)
                 return
             end
 
-            status = teleportVehicles(targetLocation, {[1] = arg1Data[4]}, nil, nil, nil, (arg2Data[2] == "p" or arg2Data[2] == "u"))
+            status = teleportVehicles(targetLocation, {[1] = arg1Data[4]}, nil, nil, nil, true)
             if status == 1 then
                 user:display("unable to find a safe location", false)
                 return
