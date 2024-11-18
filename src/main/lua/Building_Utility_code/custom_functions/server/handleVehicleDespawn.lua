@@ -3,9 +3,10 @@
 --- @param despawnerID string|integer -- The ID of the entity (player or system) that initiated the despawn action.
 --- @return string|nil -- Returns the groupID of the vehicle's group if successful, or nil if no group or log data was found.
 function handleVehicleDespawn(vehicleID, despawnerID)
-    if not G_VehicleLog then
-        BU_Debug("attempted to handle vehicle logs before first reload")
-        return nil
+
+    if not g_savedata.serverSettings or not g_savedata.serverSettings.vehicleLog then
+        G_Reloaded = false
+        BU_Reload()
     end
 
     local vehicleLogData = G_VehicleLog.vehicles[vehicleID]
@@ -29,7 +30,6 @@ function handleVehicleDespawn(vehicleID, despawnerID)
     end
 
     if tableLength(groupLogData.groupVehicles) == 0 then
-        BU_Debug("logged group despawen: ", G_VehicleLog.vehicleGroups)
         G_VehicleLog.vehicleGroups[groupID] = nil
     end
 

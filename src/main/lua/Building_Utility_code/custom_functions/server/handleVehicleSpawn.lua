@@ -3,6 +3,12 @@
 --- @param ownerID string|integer -- The ID of the owner of the vehicle group.
 --- @return table -- Returns the list of vehicle IDs in the group if successful.
 function handleVehicleSpawn(groupID, ownerID)
+
+    if not g_savedata.serverSettings or not g_savedata.serverSettings.vehicleLog then
+        G_Reloaded = false
+        BU_Reload()
+    end
+
     local groupVehicles, success = server.getVehicleGroup(groupID)
     if not success then
         BU_Debug("ERROR: unable to get groupVehicles of vehicle group: "..tostring(groupID))
