@@ -23,7 +23,7 @@ function userCommands:updateHud(self)
 
     "\n\n-----[Server]-----"..
     "\nTPS: "..string.format("%.0f", G_TPS).."/62"..
-    "\nworkshop: "..booleanTranslator(not g_savedata.serverSettings.workshopAllowed, 2)..
+    "\nworkshop: "..booleanTranslator(g_savedata.serverSettings.workshopAllowed, 2)..
 
     "\n\n----[Settings]----"..
     "\nAntiSteal: "..booleanTranslator(self.antiSteal, 2)..
