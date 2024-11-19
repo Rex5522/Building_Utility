@@ -46,3 +46,8 @@ G_DebugMode = false
 G_ReloadedThisReload = false
 G_TPS = 0
 G_Tick = 0
+G_userActivityList = {
+    lastUpdated = G_Tick,
+    active = {},
+    notActive = {}
+}
