@@ -56,7 +56,7 @@ function getArgValue(arg, targetPrefixes, lookupTables, lookupFunctions)
         end
         if value then
             BU_Debug("found arg meaning")
-            return {value, prefixes[indexFound], commandInterpretation, properArg}
+            return {value, targetPrefixes[indexFound], commandInterpretation, properArg}
         else
             BU_Debug("unable to find arg meaning")
             return {properArg, prefix, commandInterpretation, properArg}

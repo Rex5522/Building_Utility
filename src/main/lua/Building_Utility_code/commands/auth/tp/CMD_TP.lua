@@ -37,8 +37,7 @@ function CMD_TP(data)
         return
     end
 
-    
-    prefixes = {
+    local prefixes = {
         "p",
         "u",
         "g",
@@ -47,7 +46,7 @@ function CMD_TP(data)
         "l",
     }
 
-    lookupTables = {
+    local lookupTables = {
         nil,
         nil,
         nil,
@@ -56,7 +55,7 @@ function CMD_TP(data)
         -- user.savedLocations.locations
     }
 
-    functions = {
+    local functions = {
         getUserFromUserID,
         getUserFromUserID,
         vehicleGroupExist,
