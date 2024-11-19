@@ -4,7 +4,7 @@
 --- @return string|nil -- Returns the groupID of the vehicle's group if successful, or nil if no group or log data was found.
 function handleVehicleDespawn(vehicleID, despawnerID)
 
-    if not g_savedata.serverSettings or not g_savedata.serverSettings.vehicleLog then
+    if not G_Misc or not G_VehicleLog then
         G_Reloaded = false
         BU_Reload()
     end

@@ -15,6 +15,10 @@ function BU_UpdateFiles()
         end
     end
 
+    versionCompatibility() -- help transfer old data to new
+
+    compareTables(getFakeMiscData(), g_savedata.misc, true)
+
     compareTables(getFakeServerSettings(), g_savedata.serverSettings, true)
 
     updateClassFunctionsAndFix(g_savedata.users, userCommands, userClass:createUser("010101", "fakeName", 0, true))

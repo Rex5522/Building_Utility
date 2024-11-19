@@ -18,7 +18,7 @@ function userCommands:updateHud(self)
         vehicleText = "\n"..vehicleText
     end
 
-    local hudText = 
+    local hudText =
     G_ScriptName.."\n".."V: "..G_VersionNumber..
 
     "\n\n-----[Server]-----"..
@@ -30,7 +30,7 @@ function userCommands:updateHud(self)
     "\nAutoSeat: "..booleanTranslator(self.autoSeat, 2)..
     "\nTPBlock: "..booleanTranslator(self.teleportBlocking, 2)..
     "\nSpawnlc: "..booleanTranslator(self.spawnlc, 2)..
-    
+
     "\n\n----[Vehicles]----"..
     vehicleText
 
@@ -40,19 +40,15 @@ function userCommands:updateHud(self)
     -- normal -- everything is off to the side
     -- utility -- lots of debug info of their vehicle / other things
     -- minimal -- everything other then building utility hud enabled
-    -- settings -- shows settings
-    local mode = G_HudModes[self.hudMode]
+    local mode = G_Misc.hudModes[self.hudMode]
     if not mode then
-        mode = G_HudModes["normal"]
+        mode = G_Misc.hudModes["normal"]
     end
 
-    
     local speed = "SPD: "..string.format("%.1f", msConverter((self.pos.speed or 404), self.preferedSpeedunit))..self.preferedSpeedunit
     local alt = "ALT: "..string.format("%.1f", (self.pos.lastY or 404)).."M"
     local alt_SpeedToggle = (self.hud and self.hudMode ~= "minimal" and self.hudMode ~= "settings")
-    -- local settingsToggle = (self.hudMode == "settings")
-    
-    
+
     server.setPopupScreen(self.ID, g_savedata.misc.hudID, G_ScriptName, self.hud, hudText, -0.915, (0.93 - (countLines(hudText) / 40)))
     server.setPopupScreen(self.ID, g_savedata.misc.hudID + 1, "alt", alt_SpeedToggle, alt, mode.alt.x, mode.alt.y)
     server.setPopupScreen(self.ID, g_savedata.misc.hudID + 2, "speed", alt_SpeedToggle, speed, mode.speed.x, mode.speed.y)

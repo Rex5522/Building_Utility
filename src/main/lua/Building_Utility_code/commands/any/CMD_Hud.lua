@@ -26,7 +26,7 @@ function CMD_Hud(data)
         user.hud = not user.hud
         user:display("hud "..booleanTranslator(user.hud, 1), true)
         return
-    elseif hudMode and G_HudModes[hudMode] then
+    elseif hudMode and G_Misc.hudModes[hudMode] then
         user.hudMode = hudMode
         user:display("hud mode: "..hudMode, true)
     else

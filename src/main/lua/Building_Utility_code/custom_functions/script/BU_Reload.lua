@@ -5,15 +5,7 @@ function BU_Reload(override)
         return
     end
     BU_Debug("---------------------------RELOADING-------------------------------")
-    local startTile = server.getStartTile()
-    g_savedata.misc = g_savedata.misc or {
-        hudID = 762,
-        defaultAutoSeatNames = {
-            ["main"] = "main",
-            ["autoseat"] = "autoseat"
-        },
-        startLocation = matrix.translation(startTile.x,startTile.y,startTile.z)
-    }
+    g_savedata.misc = g_savedata.misc or deepCopy(getFakeMiscData())
 
     g_savedata.users = g_savedata.users or {
 
@@ -35,16 +27,16 @@ function BU_Reload(override)
     G_SteamIDs = g_savedata.steamIDs -- steamIDS / peerID / steamID -- used for getting steamids of players using userids
     G_Vehicles = g_savedata.vehicles -- all player owned vehicles
     G_ServerSettings = g_savedata.serverSettings
-    G_VehicleLog = g_savedata.serverSettings.vehicleLog
+    G_VehicleLog = g_savedata.misc.vehicleLog
 
 
     -- update files
     BU_UpdateFiles()
 
     -- handle updates
-    if G_VersionNumber ~= G_ServerSettings.version then
-        BU_Debug("current version: "..tostring(G_VersionNumber)..". previous version: "..tostring(G_ServerSettings.version))
-        G_ServerSettings.version = G_VersionNumber
+    if G_VersionNumber ~= G_Misc.version then
+        BU_Debug("current version: "..tostring(G_VersionNumber)..". previous version: "..tostring(G_Misc.version))
+        G_Misc.version = G_VersionNumber
         display(G_Updated, -1, 1, true)
     end
 

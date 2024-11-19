@@ -4,7 +4,7 @@
 --- @return table -- Returns the list of vehicle IDs in the group if successful.
 function handleVehicleSpawn(groupID, ownerID)
 
-    if not g_savedata.serverSettings or not g_savedata.serverSettings.vehicleLog then
+    if not G_Misc or not G_VehicleLog then
         G_Reloaded = false
         BU_Reload()
     end
