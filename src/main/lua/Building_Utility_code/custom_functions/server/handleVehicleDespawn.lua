@@ -12,10 +12,11 @@ function handleVehicleDespawn(vehicleID, despawnerID)
     local vehicleLogData = G_VehicleLog.vehicles[vehicleID]
     if not vehicleLogData then -- early return if this is a dupe despawn or delete the vehicle otherwise
         return nil
-    else
-        BU_Debug("deleted vehicle from vehicles: " .. tostring(vehicleID))
-        G_VehicleLog.vehicles[vehicleID] = nil
     end
+
+    G_VehicleLog.vehicles[vehicleID] = nil
+    BU_Debug("deleted vehicle " .. tostring(vehicleID) .. " from group "..tostring(groupID))
+
 
     local groupID = vehicleLogData.groupID
     local groupLogData = G_VehicleLog.vehicleGroups[groupID]
@@ -26,12 +27,13 @@ function handleVehicleDespawn(vehicleID, despawnerID)
 
     if groupLogData.groupVehicles then
         groupLogData.groupVehicles[vehicleID] = nil
-        BU_Debug("deleted group vehicle from group. vehicles remaining in group: " .. tableLength(groupLogData.groupVehicles))
+        if tableLength(groupLogData.groupVehicles) == 0 then
+            G_VehicleLog.vehicleGroups[groupID] = nil
+            BU_Debug("deleted group " .. tostring(groupID) .. " from files")
+        end
     end
 
-    if tableLength(groupLogData.groupVehicles) == 0 then
-        G_VehicleLog.vehicleGroups[groupID] = nil
-    end
+
 
     return groupID
 end
