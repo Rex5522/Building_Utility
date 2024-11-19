@@ -75,23 +75,3 @@ G_UnitConversions = {
     ["ft/s"] = 3.280,
     ["knots"] = 1.943
 }
-
-
--- tppp = {
---     user = {
---         teleportUserToUser,
---         teleportUserToGroup,
---         teleportuserToVehicle,
---         teleportuserToSeat,
---         teleportUserToLocation
---     },
-
-    
---     group = {
-
---     }
-
---     vehicle = {
-
---     },
--- }
