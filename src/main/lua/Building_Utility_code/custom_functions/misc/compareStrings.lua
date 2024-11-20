@@ -2,7 +2,7 @@
 -- @param compare string, a string to compair againsts the others
 -- @return whether a match was found
 function compareStrings(compare, ...)
-    strings = {...}
+    local strings = {...}
     for index, str in pairs(strings) do
         if compare == str then
             return true

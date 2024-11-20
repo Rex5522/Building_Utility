@@ -20,7 +20,7 @@ function vehicleCommands:autoSeat(self)
         return nil
     end
 
-    seats = getSeatedCreatures(groupVehicles)
+    local seats = getSeatedCreatures(groupVehicles)
     for index, seatData in ipairs(seats.notSeated) do
         local seatName = seatData.name:lower()
         if g_savedata.misc.defaultAutoSeatNames[seatName] then

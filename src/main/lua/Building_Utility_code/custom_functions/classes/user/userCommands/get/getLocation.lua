@@ -8,7 +8,7 @@ function userCommands:getLocation(self, forwardOffset, verticalOffset)
 	forwardOffset = forwardOffset or 0
 	verticalOffset = verticalOffset or 0
 
-	playerPos, success = server.getPlayerPos(self.ID)
+	local playerPos, success = server.getPlayerPos(self.ID)
 
 
 	if not success then

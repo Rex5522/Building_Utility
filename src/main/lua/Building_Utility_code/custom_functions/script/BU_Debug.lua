@@ -32,7 +32,7 @@ function BU_Debug(fileFromDebug, ...) -- BU_ to avoid lua default var clash
         debugMessage = "ERROR"
     end
 
-    debugInfo = string.format(
+    local debugInfo = string.format(
         "[T:%d] %s:\n%s",
         G_Tick or -1, fileFromDebug, debugMessage
     )

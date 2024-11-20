@@ -5,6 +5,7 @@
 --- @return table -- A table of vehicles within the specified distance, each entry containing distance, matrix, and vehicle ID.
 function getNearbyVehicles(targetLocaion, vehicles, maxDistance)
     local nearbyVehicles = {}
+    local vehicleMatrix, success
 
     for index, vehicleID in ipairs(vehicles) do
         vehicleMatrix, success = server.getVehiclePos(vehicleID)

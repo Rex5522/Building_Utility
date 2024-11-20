@@ -3,7 +3,7 @@
 function regen(user)
 
 
-    objectID, success = user:getObjectID()
+    local objectID, success = user:getObjectID()
     if not success then
         return
     end

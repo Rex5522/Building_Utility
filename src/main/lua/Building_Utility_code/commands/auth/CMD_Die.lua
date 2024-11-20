@@ -1,7 +1,7 @@
 function CMD_Die(data)
     local user = data.user
 
-    objectID, success = user:getObjectID()
+    local objectID, success = user:getObjectID()
     if not success then
         user:display("hmmm... you seem to not exist somehow", false)
         return

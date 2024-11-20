@@ -37,7 +37,7 @@ function CMD_Set(data)
 
         local vehicleID, success = server.getCharacterVehicle(objectID)
         if success then
-            seats = getSeatedCreatures({[1] = vehicleID})
+            local seats = getSeatedCreatures({[1] = vehicleID})
             for index, seatData in pairs(seats.seated) do
                 if tonumber(seatData.seated_id) == objectID then
                     user:display("saved seat as: "..nameOfItem, true)

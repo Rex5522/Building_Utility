@@ -7,12 +7,12 @@ function CMD_Kill(data)
         return
     end
 
-    objectID, success = targetUser:getObjectID()
+    local objectID, success = targetUser:getObjectID()
     if not success then
         user:display("player found but was unable to kill user")
         return
     end
-    
+
     server.setCharacterData(objectID, 0, nil, nil)
     targetUser:display("a admin has revoked your living privileges")
 end

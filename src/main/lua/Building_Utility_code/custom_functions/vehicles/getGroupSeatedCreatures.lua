@@ -2,6 +2,6 @@
 ---@param groupID any
 ---@return table
 function getGroupSeatedCreatures(groupID)
-    vehicles, success = server.getVehicleGroup(groupID)
+    local vehicles, success = server.getVehicleGroup(groupID)
     return getSeatedCreatures(vehicles) or nil
 end

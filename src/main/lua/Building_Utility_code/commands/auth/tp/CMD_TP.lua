@@ -32,6 +32,7 @@ function CMD_TP(data)
     local vehicle
     local groupVehicles
     local targetUser
+    local status
     if not IDOrNameToTeleport or IDOrNameToTeleport == "help" then
         createCommandFormat(formatCommandData, user)
         return
@@ -104,7 +105,7 @@ function CMD_TP(data)
 
     if not arg2Data then
 
-        success = user:teleport(targetLocation)
+        local success = user:teleport(targetLocation)
 
         if success then
             user:display("teleporting to "..G_Prefixes[arg1Data[2]], true)
@@ -160,7 +161,7 @@ function CMD_TP(data)
                 return
             end
 
-            status = teleportVehicles(targetLocation, {[1] = arg1Data[4]}, nil, nil, nil, true)
+            local status = teleportVehicles(targetLocation, {[1] = arg1Data[4]}, nil, nil, nil, true)
             if status == 1 then
                 user:display("unable to find a safe location", false)
                 return

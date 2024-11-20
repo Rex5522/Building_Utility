@@ -11,7 +11,7 @@ function userCommands:teleport(self, target)
         BU_Debug("seat detected. transfering user to teleport to seat command")
         return self:teleportToSeat(target)
     end
-    success = server.setPlayerPos(self.ID, target)
+    local success = server.setPlayerPos(self.ID, target)
     if not success then
         BU_Debug("failed to teleport user")
     end

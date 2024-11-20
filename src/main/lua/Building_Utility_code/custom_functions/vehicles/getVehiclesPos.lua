@@ -5,7 +5,7 @@ function getVehiclesPos(vehicles)
     local vehicleMatrixs = {}
 
     for index, vehicleID in ipairs(vehicles) do
-        vehicleMatrix, success = server.getVehiclePos(vehicleID)
+        local vehicleMatrix, success = server.getVehiclePos(vehicleID)
         if success then
             vehicleMatrixs[vehicleID] = {
                 matrix = vehicleMatrix

@@ -13,13 +13,12 @@ function handleVehicleDespawn(vehicleID, despawnerID)
     if not vehicleLogData then -- early return if this is a dupe despawn or delete the vehicle otherwise
         return nil
     end
+    local groupID = vehicleLogData.groupID
+    local groupLogData = G_VehicleLog.vehicleGroups[groupID]
 
     G_VehicleLog.vehicles[vehicleID] = nil
     BU_Debug("deleted vehicle " .. tostring(vehicleID) .. " from group "..tostring(groupID))
 
-
-    local groupID = vehicleLogData.groupID
-    local groupLogData = G_VehicleLog.vehicleGroups[groupID]
     if not groupLogData then
         BU_Debug("vehicle was found but group was not?!??!")
         return groupID
