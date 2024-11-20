@@ -45,6 +45,7 @@ function userClass:createUser(steamID, name, userID, fake)
         spawnlc = false,
         spawnlcTargetLocation = "spawnlc",
         teleportBlocking = false,
+        autoBench = false,
         vehicles = {},
         playerGoneForXTicks = 0,
         inventorys = {

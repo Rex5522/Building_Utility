@@ -10,6 +10,16 @@ function CMD_Qmqm(data)
     end
 
     local groupID = user.vehicles[#user.vehicles]
+
+    if user.autoBench then
+        local vehicle = getVehicleFromGroupID(groupID)
+        if vehicle.userLocationDuringSpawn ~= matrix.identity() then
+            user:teleport(vehicle.userLocationDuringSpawn)
+        else
+            user:display("autoBench error: this vehicle seems to have been made before autoBench was added")
+        end
+    end
+
     local success = server.despawnVehicleGroup(groupID, true)
 
     if success then

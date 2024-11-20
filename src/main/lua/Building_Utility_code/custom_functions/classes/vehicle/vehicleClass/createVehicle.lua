@@ -19,6 +19,7 @@ function vehicleClass:createVehicle(groupID, ownerID, cost, antiSteal, groupVehi
         groupVehicles = groupVehicles,
         workshopVehicle = false,
         isOwnerOfWorkshopVehicle = false,
+        userLocationDuringSpawn = matrix.identity(),
         teleportUsersToSeat = { -- for users that are being teleported with the vehicle
             -- [vehicleID] = {
             --     [index] = seatData

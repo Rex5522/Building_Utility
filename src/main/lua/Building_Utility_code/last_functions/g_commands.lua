@@ -93,6 +93,16 @@ G_Commands = {
 
 
     ----------------- auth -----------------
+    ["?autobench"] = {
+        func = CMD_AutoBench,
+        description = "toggle autoBench. autoBench, when on. teleports you back to the location you where at when you spawned the vehicle after using ?? or ?c command to despawn the vehicle.",
+        authLevel = 1
+    },
+    ["?autoback"] = {
+        func = CMD_AutoBench,
+        description = "a Alternative command for autobench for users used to the old " .. G_ScriptName,
+        authLevel = 1
+    },
     ["?tp"] = {
         func = CMD_TP,
         description = "Teleports a player/vehicles to a number of targets. type ?tp help for more info",

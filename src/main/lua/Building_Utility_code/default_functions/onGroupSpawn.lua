@@ -22,11 +22,6 @@ function onGroupSpawn(groupID, ownerID, x, y, z, cost)
         return
     end
 
-
-
-
-
-
     -- check vehicle limit
     if #owner.vehicles < g_savedata.serverSettings.vehicleLimit or owner:getStatus() == 2 then
         table.insert(owner.vehicles, groupID)
@@ -84,6 +79,8 @@ function onGroupSpawn(groupID, ownerID, x, y, z, cost)
             owner:display("no valid spawnlc selected. vehicle not teleported. type ?spawnlc help for more information", false)
         end
     end
+
+    vehicle.userLocationDuringSpawn = owner:getLocation()
 
     server.addMapObject(-1, groupID + 7000, 1, 1, 0, 0, 0, 0, vehicle.mainBodyID, nil,
     owner.name.."'s vehicle", 0, mainToolTip, 100, 100, 100, 255)
