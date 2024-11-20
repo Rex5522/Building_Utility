@@ -95,12 +95,12 @@ G_Commands = {
     ----------------- auth -----------------
     ["?tp"] = {
         func = CMD_TP,
-        description = "Teleports the player to a specific location.",
+        description = "Teleports a player/vehicles to a number of targets. type ?tp help for more info",
         authLevel = 1
     },
     ["?tpp"] = {
         func = CMD_TP,
-        description = "Alternative command to teleport the player.",
+        description = "Alternative command to tp command.",
         authLevel = 1
     },
     ["?die"] = {
