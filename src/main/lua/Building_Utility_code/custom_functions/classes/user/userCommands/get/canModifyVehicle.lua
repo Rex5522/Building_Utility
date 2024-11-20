@@ -10,7 +10,7 @@ function userCommands:canModifyVehicle(self, vehicleID)
     end
 
     local ownerID = vehicleData.ownerID
-    if userStatus == 2 or ownerID == self.ID then
+    if userStatus >= 2 or ownerID == self.ID then
         return true, 0
     else
         return false, 0

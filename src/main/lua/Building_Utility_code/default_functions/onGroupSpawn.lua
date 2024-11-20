@@ -23,7 +23,7 @@ function onGroupSpawn(groupID, ownerID, x, y, z, cost)
     end
 
     -- check vehicle limit
-    if #owner.vehicles < g_savedata.serverSettings.vehicleLimit or owner:getStatus() == 2 then
+    if #owner.vehicles < g_savedata.serverSettings.vehicleLimit or owner:getStatus() >= 2 then
         table.insert(owner.vehicles, groupID)
     else
         display("vehicle limit reached. please delete a vehicle first", ownerID, 6)
@@ -63,7 +63,7 @@ function onGroupSpawn(groupID, ownerID, x, y, z, cost)
         server.setVehicleTooltip(vehicleID, toolTip)
     end
 
-    if vehicle.workshopVehicle and not vehicle.isOwnerOfWorkshopVehicle and not G_ServerSettings.workshopAllowed and (owner:getStatus() ~= 2) then
+    if vehicle.workshopVehicle and not vehicle.isOwnerOfWorkshopVehicle and not G_ServerSettings.workshopAllowed and (owner:getStatus() < 2) then
         owner:display("you spawned a workshop vehicle that you do not own. no workshop vehicles are allowed on this server", false)
         server.despawnVehicleGroup(groupID, true)
         return

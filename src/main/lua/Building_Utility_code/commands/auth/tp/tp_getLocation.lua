@@ -102,7 +102,7 @@ function tp_getLocation(user, admin, arg1Data, arg2Data)
 
     if G_Prefixes[locationArg[2]] and targetUser then
         if user.ID ~= targetUser.ID then
-            if targetUser.teleportBlocking and user:getStatus() == 2 then
+            if targetUser.teleportBlocking and user:getStatus() >= 2 then
                 targetUser:display("a admin has overrided your TPBlock and has teleported to your "..G_Prefixes[locationArg[2]])
             else
                 targetUser:display("a player is teleporting to your "..G_Prefixes[locationArg[2]])
