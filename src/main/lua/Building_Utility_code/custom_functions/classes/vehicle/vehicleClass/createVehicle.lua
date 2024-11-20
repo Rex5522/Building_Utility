@@ -5,7 +5,7 @@
 -- @param antisteal bool,
 -- @param groupvehicles table, a list of the vehicles sub bodys
 -- @return vehicle object
-function vehicleClass:createVehicle(groupID, ownerID, cost, antiSteal, groupVehicles)
+function vehicleClass:createVehicle(groupID, ownerID, cost, antiSteal, groupVehicles, fake)
     local vehicle = {
         type = "vehicle",
         groupID = groupID,
@@ -26,12 +26,16 @@ function vehicleClass:createVehicle(groupID, ownerID, cost, antiSteal, groupVehi
             -- }
         }
     }
-    
+
     for key, value in pairs(vehicleCommands) do
         vehicle[key] = function(...) return value(vehicle, ...) end
     end
-    
+
+    if fake then
+        return vehicle
+    end
+
     g_savedata.vehicles[vehicle.groupID] = deepCopy(vehicle)
-    
+
     return g_savedata.vehicles[vehicle.groupID]
 end
