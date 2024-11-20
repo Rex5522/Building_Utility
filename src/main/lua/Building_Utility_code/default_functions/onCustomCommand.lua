@@ -33,10 +33,11 @@ function onCustomCommand(fullMessage, userID, admin, auth, command, ...)
     local data = {
         fullMessage = fullMessage,
         userID = userID,
-        admin = admin,
-        auth = auth,
+        admin = admin, -- use status instead
+        auth = auth, -- use status instead
         command = command,
-        user = user
+        user = user,
+        status = user:getStatus()
     }
 
     for index, value in ipairs(args) do
