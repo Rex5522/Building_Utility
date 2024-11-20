@@ -1,5 +1,10 @@
 G_Commands = {
     ----------------- admin -----------------
+    ["?server"] = {
+        func = CMD_Server,
+        description = "sets server settings. type ?server list for a list",
+        authLevel = 2
+    },
     ["?reload"] = {
         func = CMD_Reload,
         description = "Reloads " .. G_ScriptName .. ".",
