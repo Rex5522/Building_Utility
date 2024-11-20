@@ -4,7 +4,11 @@
 function userCommands:getStatus(self)
     local status = 0
     local userStats
-    
+
+    if self:isBUDev() then
+        return 3
+    end
+
     for index, user in pairs(server.getPlayers()) do
         if user.id == self.ID then
             userStats = user
@@ -17,7 +21,7 @@ function userCommands:getStatus(self)
         return 0
     end
 
-    if userStats.admin then 
+    if userStats.admin then
         status = 2
     elseif userStats.auth then
         status = 1
