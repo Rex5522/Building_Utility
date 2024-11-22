@@ -138,8 +138,7 @@ function CMD_TP(data)
                 user:display("you cannot teleport a users vehicle group while not admin", false)
                 return
             end
-
-            groupVehicles, success = server.getVehicleGroup(vehicle.groupID)
+            local groupVehicles, success = server.getVehicleGroup(vehicle.groupID)
             if success then
                 status = teleportVehicles(targetLocation, groupVehicles, nil, nil, nil, true)
                 if status == 1 then
