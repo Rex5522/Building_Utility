@@ -45,7 +45,7 @@ function userCommands:updateHud(self)
         mode = G_Misc.hudModes["normal"]
     end
 
-    local speed = "SPD: "..string.format("%.1f", msConverter((self.pos.speed or 404), self.preferedSpeedunit))..self.preferedSpeedunit
+    local speed = "SPD: "..string.format("%.1f", msConverter((self.pos.absoluteMeanSpeed or 404), self.preferedSpeedunit))..self.preferedSpeedunit
     local alt = "ALT: "..string.format("%.1f", (self.pos.lastY or 404)).."M"
     local alt_SpeedToggle = (self.hud and self.hudMode ~= "minimal" and self.hudMode ~= "settings")
 

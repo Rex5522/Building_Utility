@@ -2,6 +2,10 @@ function onTick(tick)
     G_Tick = G_Tick + 1
     updateUserActivityList()
 
+    if G_Tick % 5 == 0 then
+        updatePositions()
+    end
+
     if G_Tick % 3600 == 0 then
         for userID, user in pairs(G_userActivityList.notActive) do
             local ErrorTicks = 100 -- to help when the script is reloaded and some tick data is lost
@@ -20,10 +24,8 @@ function onTick(tick)
     end
 
     for userID, user in pairs(G_userActivityList.active) do
-
         if G_Tick % 5 == 0 then
-            user:updatePos()
-            user:updateHud() -- update pos must come first
+            user:updateHud()
         end
 
         regen(user)
