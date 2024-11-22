@@ -66,9 +66,16 @@ function userClass:createUser(steamID, name, userID, fake)
             lastX = 0,
             lastY = 0,
             lastZ = 0,
-            speed = 0,
-            lastUpdated = 0,
-            previousSpeeds = {}
+
+            deltaX = 0,
+            deltaY = 0,
+            deltaZ = 0,
+
+            absoluteSpeed = 0,
+            absoluteMeanSpeed = 0,
+            previousSpeeds = {},
+
+            lastUpdated = 0
         },
         savedLocations = {
             seats = {
