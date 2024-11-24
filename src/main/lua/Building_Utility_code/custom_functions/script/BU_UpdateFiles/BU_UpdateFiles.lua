@@ -24,4 +24,8 @@ function BU_UpdateFiles()
     updateClassFunctionsAndFix(g_savedata.users, userCommands, userClass:createUser("010101", "fakeName", 0, true))
 
     updateClassFunctionsAndFix(g_savedata.vehicles, vehicleCommands, vehicleClass:createVehicle(-1, -1, 0, true, {}, true))
+
+    for steamID, user in pairs(G_Users) do
+        user:handleNilVehicles()
+    end
 end
