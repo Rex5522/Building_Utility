@@ -136,6 +136,21 @@ G_Commands = {
 
 
     ----------------- any -----------------
+    ["?ca"] = {
+        func = CMD_ClearAll,
+        description = "clears all your vehicles",
+        authLevel = 0
+    },
+    ["?clearall"] = {
+        func = CMD_ClearAll,
+        description = "clears all your vehicles",
+        authLevel = 0
+    },
+    ["?dsa"] = {
+        func = CMD_ClearAll,
+        description = "clears all your vehicles",
+        authLevel = 0
+    },
     ["?remove"] = {
         func = CMD_Remove,
         description = "the opposite of the set command. removes inventory/location/seats (inv/lc/seat) from your save file",
