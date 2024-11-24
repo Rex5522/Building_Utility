@@ -23,9 +23,9 @@ function CMD_Qmqm(data)
     local success = server.despawnVehicleGroup(groupID, true)
 
     if success then
-        user.vehicles[groupID] = nil
         user:display("vehicle "..groupID.." despawned", true)
     else
-        user:display("failed to despawn "..groupID, false)
+        user:handleNilVehicles()
+        user:display("failed to despawn " .. groupID .. ". this vehicle will be removed from your list", false)
     end
 end
