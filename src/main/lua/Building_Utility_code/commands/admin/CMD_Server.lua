@@ -4,7 +4,7 @@ function CMD_Server(data)
         argData = {
             [1] = {
                 argName = "name_of_server_setting",
-                Description = "the id of the object you wish to spawn. use ?spawnanimal list to list object ids. type ?server list for a list",
+                Description = "the name or prefix of the setting to wish to change. type '?server list' for a list of settings",
                 exampleValue = "workshop",
                 required = true
             },
@@ -58,23 +58,23 @@ function CMD_Server(data)
     end
 
     if settingRefrence == nil then
-        user:display("The setting '" .. targetSettingName .. "' does not exist. Use '?server list' to view all settings.")
+        user:display("The setting '" .. targetSettingName .. "' does not exist. Use '?server list' to view all settings.", false)
         return
     end
 
     if not valueToSetSetting then
-        user:display("no value for setting provided")
+        user:display("no value for setting provided", false)
         return
     end
 
     valueToSetSetting = stringToValue(valueToSetSetting)
     if valueToSetSetting == nil or type(G_ServerSettings[settingRefrence]) ~= type(valueToSetSetting) then
-        user:display("invalied type for option. required type is " .. type(settingRefrence))
+        user:display("invalied type for option. required type is " .. type(settingRefrence), false)
         return
     end
 
     local text = string.format("setting %s changed from %s to %s",
-    actualSettingName, tostring(G_ServerSettings[actualSettingName]), tostring(valueToSetSetting))
+    actualSettingName, tostring(G_ServerSettings[actualSettingName]), tostring(valueToSetSetting), true)
     G_ServerSettings[actualSettingName] = valueToSetSetting
 
     user:display(text, true)
