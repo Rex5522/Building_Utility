@@ -5,6 +5,11 @@ G_Commands = {
         description = "sets server settings. type ?server list for a list",
         authLevel = 2
     },
+    ["?heal"] = {
+        func = CMD_Heal,
+        description = "heals the targeted userID. not typing an ID will heal you",
+        authLevel = 2
+    },
     ["?reload"] = {
         func = CMD_Reload,
         description = "Reloads " .. G_ScriptName .. ".",
