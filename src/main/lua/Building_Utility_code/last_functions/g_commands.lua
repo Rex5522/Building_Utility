@@ -103,6 +103,11 @@ G_Commands = {
         description = "toggle autoBench. autoBench, when on. teleports you back to the location you where at when you spawned the vehicle after using ?? or ?c command to despawn the vehicle.",
         authLevel = 1
     },
+    ["?ab"] = {
+        func = CMD_AutoBench,
+        description = "toggle autoBench. autoBench, when on. teleports you back to the location you where at when you spawned the vehicle after using ?? or ?c command to despawn the vehicle.",
+        authLevel = 1
+    },
     ["?autoback"] = {
         func = CMD_AutoBench,
         description = "a Alternative command for autobench for users used to the old " .. G_ScriptName,
