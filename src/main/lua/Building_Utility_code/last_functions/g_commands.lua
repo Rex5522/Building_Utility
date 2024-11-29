@@ -35,6 +35,11 @@ G_Commands = {
         description = "Automatically auth's users upon joining.",
         authLevel = 2
     },
+    ["?au"] = {
+        func = CMD_AutoAuth,
+        description = "AutoAuth prefix",
+        authLevel = 2
+    },
     ["?clearobjects"] = {
         func = CMD_ClearObjects,
         description = "Clears all objects.",
