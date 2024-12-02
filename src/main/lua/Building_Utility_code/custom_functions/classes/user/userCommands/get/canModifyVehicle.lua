@@ -4,12 +4,13 @@
 function userCommands:canModifyVehicle(self, vehicleID)
     local userStatus = self:getStatus()
 
-    local vehicleData = G_VehicleLog.vehicles[tonumber(vehicleID)] or G_VehicleLog.vehicleGroups[tonumber(vehicleID)]
+    local vehicleData = getVehicleFromGroupID(vehicleID) or getVehicleFromVehicleID(vehicleID)
     if not vehicleData then
         return false, 1
     end
 
     local ownerID = vehicleData.ownerID
+
     if userStatus >= 2 or ownerID == self.ID then
         return true, 0
     else

@@ -34,17 +34,10 @@ function CMD_Flip(data)
         groupVehicles = {[1] = targetID}
     end
 
-    local matrices, success = getVehicleLocationsFromGroup(groupVehicles)
-    if not success or #matrices == 0 then
-        user:display("an error occured while getting vehicle locations", false)
-        return
-    end
-
-    local calculatedMatrices = calculateVehicleRelativeMove(resetMatrixRotation(matrices[1]), matrices)
-    for index, vehicleData in ipairs(calculatedMatrices) do
-        local success = server.setVehiclePos(groupVehicles[index], vehicleData.matrix)
-        if not success then
-            BU_Debug("failed to set vehicle pos", vehicleData)
-        end
+    local status = teleportVehicles(resetMatrixRotation(server.getVehiclePos(groupVehicles[1])), groupVehicles)
+    if status == 0 then
+        user:display("fliped vehicle "..tostring(targetID), true)
+    else
+        user:display("failed to flip vehicle "..tostring(targetID), false)
     end
 end
