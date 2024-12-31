@@ -48,8 +48,9 @@ function userCommands:updateHud(self)
     local speed = "SPD: "..string.format("%.1f", msConverter((self.pos.absoluteMeanSpeed or 404), self.preferedSpeedunit))..self.preferedSpeedunit
     local alt = "ALT: "..string.format("%.1f", (self.pos.lastY or 404)).."M"
     local alt_SpeedToggle = (self.hud and self.hudMode ~= "minimal" and self.hudMode ~= "settings")
+    local mainUiToggle = self.hud and self.hudMode ~= "minimal" and self.hudMode ~= "combat"
 
-    server.setPopupScreen(self.ID, g_savedata.misc.hudID, G_ScriptName, self.hud, hudText, -0.915, (0.93 - (countLines(hudText) / 40)))
-    server.setPopupScreen(self.ID, g_savedata.misc.hudID + 1, "alt", alt_SpeedToggle, alt, mode.alt.x, mode.alt.y)
-    server.setPopupScreen(self.ID, g_savedata.misc.hudID + 2, "speed", alt_SpeedToggle, speed, mode.speed.x, mode.speed.y)
+    server.setPopupScreen(self.ID, g_savedata.misc.hudID, G_ScriptName, mainUiToggle, hudText, -0.915, (0.93 - (countLines(hudText) / 40)))
+    server.setPopupScreen(self.ID, g_savedata.misc.hudID + 1, "alt", self.hud, alt, mode.alt.x, mode.alt.y)
+    server.setPopupScreen(self.ID, g_savedata.misc.hudID + 2, "speed", self.hud, speed, mode.speed.x, mode.speed.y)
 end
