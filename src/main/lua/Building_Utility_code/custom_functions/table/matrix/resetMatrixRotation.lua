@@ -13,7 +13,7 @@ function resetMatrixRotation(matrix)
         [11] = -0.707107,
         [12] = 0.0,
         [13] = matrix[13], -- x
-        [14] = matrix[14] + 5, -- alt 
+        [14] = matrix[14], -- alt 
         [15] = matrix[15],-- y
         [16] = 1.0
     }
