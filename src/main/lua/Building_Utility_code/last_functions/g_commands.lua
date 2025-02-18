@@ -103,6 +103,16 @@ G_Commands = {
 
 
     ----------------- auth -----------------
+    ["?vehicledebugger"] = {
+        func = CMD_VehicleDebugger,
+        description = "allows you to debug a vehicles speed, alt and posistion. use ?vehicledebugger help for more detail",
+        authLevel = 1
+    },
+    ["?vd"] = {
+        func = CMD_VehicleDebugger,
+        description = "a shorter spelling for the vehicledebugger command. allows you to debug a vehicles speed, alt and posistion. use ?vd help for more detail",
+        authLevel = 1
+    },
     ["?autobench"] = {
         func = CMD_AutoBench,
         description = "toggle autoBench. autoBench, when on. teleports you back to the location you where at when you spawned the vehicle after using ?? or ?c command to despawn the vehicle.",

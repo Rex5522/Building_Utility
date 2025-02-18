@@ -19,6 +19,98 @@ function BU_Reload(override)
 
     }
 
+    g_savedata.vehicleDebugData = g_savedata.vehicleDebugData or {
+        commands = {
+
+        },
+        vehicles = {
+            -- [targetID] = {
+            --     scanAllBodys = isscannermoder > 1,
+            --     usedBy = {
+            --         [userID] = finderMode
+            --     },
+            --     pos = {
+            --         lastX = 0,
+            --         lastY = 0,
+            --         lastZ = 0,
+
+            --         deltaX = 0,
+            --         deltaY = 0,
+            --         deltaZ = 0,
+
+            --         absoluteSpeed = 0,
+            --         absoluteMeanSpeed = 0,
+            --         previousSpeeds = {},
+
+            --         lastUpdated = 0
+            --     },
+            -- }
+        }
+    }
+    g_savedata.vehicleDebugData.commands = {
+        addUser = function(user, targetID, finderMode)
+            if not g_savedata.vehicleDebugData.vehicles[tonumber(targetID)] then
+                g_savedata.vehicleDebugData.commands.createVehicle(user, tonumber(targetID), finderMode)
+                return
+            end
+
+            g_savedata.vehicleDebugData.vehicles[tonumber(targetID)].usedBy[user.ID] = finderMode
+            g_savedata.vehicleDebugData.commands.updateFinderMode(tonumber(targetID))
+
+            user.vehicleDebugTargets[tonumber(targetID)] = {
+                finderMode = finderMode
+            }
+        end,
+
+        removeUser = function(user, targetID)
+            g_savedata.vehicleDebugData.vehicles[tonumber(targetID)].usedBy[user.ID] = nil
+            g_savedata.vehicleDebugData.commands.updateFinderMode(tonumber(targetID))
+            server.removePopup(user.ID, g_savedata.misc.hudID + 20 + tableLength(user.vehicleDebugTargets) - 1)
+            user.vehicleDebugTargets[tonumber(targetID)] = nil
+        end,
+
+       updateFinderMode = function(targetID)
+            for _, finderMode in pairs(g_savedata.vehicleDebugData.vehicles[tonumber(targetID)].usedBy) do
+                g_savedata.vehicleDebugData.vehicles[tonumber(targetID)].scanAllBodys=false
+                if finderMode > 1 then
+                    g_savedata.vehicleDebugData.vehicles[tonumber(targetID)].scanAllBodys=true
+                    break
+                end
+            end
+        end,
+        createVehicle = function(user, targetID, finderMode)
+            BU_Debug("attempting to create new debug vehicle data with id ".. tostring(targetID))
+            g_savedata.vehicleDebugData.vehicles[tonumber(targetID)] = {
+                scanAllBodys = false,
+                usedBy = {
+                    [user.ID] = finderMode
+                },
+                pos = {
+                    topAlt = 0,
+                    topSpeed = 0,
+
+                    lastX = 0,
+                    lastY = 0,
+                    lastZ = 0,
+
+                    deltaX = 0,
+                    deltaY = 0,
+                    deltaZ = 0,
+
+                    absoluteSpeed = 0,
+                    absoluteMeanSpeed = 0,
+                    previousSpeeds = {},
+
+                    lastUpdated = 0
+                },
+            }
+
+            user.vehicleDebugTargets[tonumber(targetID)] = {
+                finderMode = finderMode
+            }
+        end
+    }
+
     g_savedata.serverSettings = g_savedata.serverSettings or deepCopy(getFakeServerSettings())
 
     -- prefixes

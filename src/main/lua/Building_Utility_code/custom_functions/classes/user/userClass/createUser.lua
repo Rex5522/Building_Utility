@@ -62,6 +62,16 @@ function userClass:createUser(steamID, name, userID, fake)
                 [10] = "76"
              }
         },
+
+        vehicleDebugBlock = false,
+        vehicleDebugTargets = {
+            -- [targetID] = {
+            --     finderMethod = 1 -- [1/2/3 | useOnlyTargetID/findTargetViaSpeed/findTargetViaAlt]
+            -- }
+        },
+        hudIDs = {
+            -- id
+        },
         pos = {
             lastX = 0,
             lastY = 0,

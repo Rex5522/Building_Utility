@@ -53,4 +53,49 @@ function userCommands:updateHud(self)
     server.setPopupScreen(self.ID, g_savedata.misc.hudID, G_ScriptName, mainUiToggle, hudText, -0.915, (0.93 - (countLines(hudText) / 40)))
     server.setPopupScreen(self.ID, g_savedata.misc.hudID + 1, "alt", self.hud, alt, mode.alt.x, mode.alt.y)
     server.setPopupScreen(self.ID, g_savedata.misc.hudID + 2, "speed", self.hud, speed, mode.speed.x, mode.speed.y)
+
+    ---- vehicle debugger
+    local debugCount = 0
+    local UI_X = 1.115
+    for vehicleID, _ in pairs(self.vehicleDebugTargets) do
+        local targetedVehicle = g_savedata.vehicleDebugData.vehicles[vehicleID]
+        if not targetedVehicle then
+            break
+        end
+
+        local text = string.format(
+            "ID: %.0f\n"..
+            "==========\n"..
+            "SPD: %.1f\n"..
+            "ALT: %.1f\n\n"..
+
+            "TSP %.1f\n"..
+            "HAT: %.1f\n\n"..
+
+            "X: %.0f\n"..
+            "Y: %.0f\n"..
+            "Z: %.0f\n",
+
+            vehicleID,
+
+            targetedVehicle.pos.absoluteMeanSpeed,
+            targetedVehicle.pos.lastY,
+
+            targetedVehicle.pos.topSpeed,
+            targetedVehicle.pos.topAlt,
+
+            targetedVehicle.pos.lastX,
+            targetedVehicle.pos.lastY,
+            targetedVehicle.pos.lastZ
+        )
+
+        if debugCount % 3 == 0 then
+            UI_X = UI_X - 0.2
+        end
+
+        local debugHudID = g_savedata.misc.hudID + 20 + debugCount
+
+        server.setPopupScreen(self.ID, debugHudID, "debug", true, text, UI_X, 0.55 - (debugCount % 3) / 2)
+        debugCount = debugCount + 1
+    end
 end
