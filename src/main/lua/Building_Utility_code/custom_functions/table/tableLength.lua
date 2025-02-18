@@ -1,5 +1,5 @@
 function tableLength(table)
-    count = 0
+    local count = 0
     if table then
         for key, value in pairs(table) do
             count = count + 1
